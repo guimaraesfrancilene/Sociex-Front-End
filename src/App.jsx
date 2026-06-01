@@ -1,7 +1,7 @@
+import LoginSociedade from "./pages/LoginSociedade";
+
 function App() {
-  return (
-    <h1>Sociex</h1>
-  )
+  return <LoginSociedade />;
 }
 
-export default App
+export default App;
