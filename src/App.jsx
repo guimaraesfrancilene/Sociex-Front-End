@@ -16,7 +16,7 @@ function App() {
   return <LoginUniversidade />;
 }
 
-export default App;*/
+export default App;
 
 // Sociedade
 

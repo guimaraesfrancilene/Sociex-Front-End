@@ -14,10 +14,12 @@ html,
   font-family: Arial, sans-serif;
 }
 
+
 .layout-duplo {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+
 }
 
 .lado-esquerdo {
@@ -27,6 +29,14 @@ html,
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.lado-direito {
+    flex: 1;
+    background-color: var(--cor-vinho);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .titulo{
@@ -48,8 +58,9 @@ html,
 }
 
 .card {
+  margin: 0;
   background-color: var(--cor-creme);
-  padding: 40px;
+  padding: 30px;
   border-radius: 15px;
   width: 320px;
   text-align: center;
@@ -60,6 +71,20 @@ html,
 .titulo-login {
   color: var(--cor-laranja) !important;
   font-weight: bold;
+}
+
+.titulo{
+  color: var(--cor-vinho);
+  font-size: 60px;
+  margin: 0;
+  font-family: 'Baloo 2', cursive !important
+}
+
+.frase-titulo {
+  color: var(--cor-preta);
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: bold !important;
 }
 
 .card label {
