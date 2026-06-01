@@ -14,12 +14,10 @@ html,
   font-family: Arial, sans-serif;
 }
 
-
 .layout-duplo {
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-
 }
 
 .lado-esquerdo {
@@ -31,36 +29,38 @@ html,
   align-items: center;
 }
 
-.lado-direito {
-    flex: 1;
-    background-color: var(--cor-vinho);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .titulo{
   color: var(--cor-vinho);
   font-size: 60px;
   margin: 0;
+  font-weight: bold;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
+.frase-titulo {
+  color: var(--cor-preta);
+  font-size: 24px;
+  margin-top: 20px;
   text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  max-width: 400px;
+}
+.logo-titulo {
+    color: var(--cor-vinho);
+    font-size: 60px !important;
+    margin: 0;
+    font-weight: bold;
+}
+
+.lado-direito {
+  flex: 1;
+  background-color: var(--cor-vinho);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .card {
-  margin: 0;
   background-color: var(--cor-creme);
-  padding: 30px;
+  padding: 40px;
   border-radius: 15px;
   width: 320px;
   text-align: center;
@@ -71,20 +71,6 @@ html,
 .titulo-login {
   color: var(--cor-laranja) !important;
   font-weight: bold;
-}
-
-.titulo{
-  color: var(--cor-vinho);
-  font-size: 60px;
-  margin: 0;
-  font-family: 'Baloo 2', cursive !important
-}
-
-.frase-titulo {
-  color: var(--cor-preta);
-  font-size: 22px;
-  margin-bottom: 20px;
-  font-weight: bold !important;
 }
 
 .card label {
@@ -179,9 +165,9 @@ html,
 
 
     display: flex;
-    align-items: center;   /* alinha verticalmente */
-    justify-content: center; /* centraliza tudo */
-    gap: 8px; /* espaço entre ícone e texto */
+    align-items: center;   /* 👈 alinha verticalmente */
+    justify-content: center; /* 👈 centraliza tudo */
+    gap: 8px; /* 👈 espaço entre ícone e texto */
 }
 
 .botao-google:hover {
