@@ -165,9 +165,9 @@ html,
 
 
     display: flex;
-    align-items: center;   /* 👈 alinha verticalmente */
-    justify-content: center; /* 👈 centraliza tudo */
-    gap: 8px; /* 👈 espaço entre ícone e texto */
+    align-items: center;   /* alinha verticalmente */
+    justify-content: center; /* centraliza tudo */
+    gap: 8px; /* espaço entre ícone e texto */
 }
 
 .botao-google:hover {

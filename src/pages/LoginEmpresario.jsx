@@ -22,6 +22,7 @@ function LoginEmpresario() {
             />
           </div>
 
+          
           {/* SENHA */}
           <div className="campo-input">
             <label>Senha</label>
@@ -45,7 +46,9 @@ function LoginEmpresario() {
               </a>
             </p>
           </div>
-           {/* GOOGLE LOGIN (NO FINAL) */}
+
+
+           {/* GOOGLE LOGIN*/}
           <button className="botao-google">
             <img src="/google.png" width="15" alt="Google" />
             Entrar com Google
