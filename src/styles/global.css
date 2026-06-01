@@ -33,7 +33,7 @@ html,
   color: var(--cor-vinho);
   font-size: 60px;
   margin: 0;
-  font-weight: bold;
+   font-family: 'Baloo 2', cursive !important
 }
 
 .frase-titulo {
