@@ -317,7 +317,7 @@ html, body {
     gap: 20px;
 }
 
-.nav-links a {
+.nav-links a, .nav-links span {
     text-decoration: none;
     color: var(--cor-texto-vinho);
     font-weight: bold;
