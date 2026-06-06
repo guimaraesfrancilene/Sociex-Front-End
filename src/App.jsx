@@ -9,7 +9,9 @@ import CadastroSociedade from './pages/cadastro/CadastroSociedade'
 import Dashboard from './pages/universitario/Dashboard'
 import DashboardComposto from './pages/composto/DashboardComposto'
 import CategoriaTurismo from './pages/universitario/categoria/CategoriaTurismo'
-
+import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao'
+import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
+import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgropecuaria'
 /*import Footer from './components/Footer'*/
 
 
@@ -27,7 +29,9 @@ function App() {
       <Route path="/universitario/dashboard" element={<Dashboard />} />
       <Route path="/composto/dashboard" element={<DashboardComposto />} />
       <Route path="/universitario/categoria/turismo" element={<CategoriaTurismo />} />
-      
+      <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
+      <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
+      <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria />} />
     </Routes>
     
    /* <Footer />
