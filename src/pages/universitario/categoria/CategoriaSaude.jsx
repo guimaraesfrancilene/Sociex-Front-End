@@ -1,30 +1,22 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Categoria.css'
-import imgTurismo from '../../../assets/turismo.png'
+import imgSaude from '../../../assets/saude.png'
 import imgMenu from '../../../assets/menulateral.png'
 import { FiInfo, FiChevronLeft, FiUser, FiFileText, FiLogOut, FiEdit } from 'react-icons/fi'
 
 const projetos = [
-  { id: 1, nome: 'App TurismoBR', submissao: '27/JAN/23', atualizacao: '23/ABR/23' },
-  
-  { id: 2, nome: 'MuseuVirtual', submissao: '20/ABR/23', atualizacao: '12/JUL/23' },
-  { id: 3, nome: 'TurismoSustentável', submissao: '25/DEZ/23', atualizacao: '25/MAR/24' },
-  { id: 4, nome: 'CulturaFest', submissao: '01/FEV/23', atualizacao: '15/MAI/23' },
-  { id: 5, nome: 'Turismo+Jovem', submissao: '20/ABR/25', atualizacao: '20/JUL/23' },
+  { id: 1, nome: 'Projeto Saúde 1', submissao: '27/JAN/23', atualizacao: '23/ABR/23' },
+  { id: 2, nome: 'Projeto Saúde 2', submissao: '20/ABR/23', atualizacao: '12/JUL/23' },
 ]
 
-function CategoriaTurismo() {
+function CategoriaSaude() {
   const navigate = useNavigate()
   const [menuAberto, setMenuAberto] = useState(false)
 
   return (
     <div className="categoria-container">
-
-      {/* Menu Lateral */}
-      {menuAberto && (
-        <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
-      )}
+      {menuAberto && <div className="menu-overlay" onClick={() => setMenuAberto(false)} />}
       <div className={`menu-lateral ${menuAberto ? 'aberto' : ''}`}>
         <button className="menu-fechar" onClick={() => setMenuAberto(false)}><FiChevronLeft /></button>
         <div className="menu-perfil">
@@ -40,7 +32,6 @@ function CategoriaTurismo() {
         </ul>
       </div>
 
-      {/* Navbar */}
       <header className="navbar">
         <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
@@ -51,19 +42,17 @@ function CategoriaTurismo() {
         </nav>
       </header>
 
-      {/* Cabeçalho da categoria */}
       <section className="categoria-header">
         <div className="categoria-info">
-          <img src={imgTurismo} alt="Turismo" style={{ height: '150px' }} />
+          <img src={imgSaude} alt="Saúde" style={{ height: '150px' }} />
           <div>
-            <h2>CULTURA E TURISMO</h2>
-            <p>Nessa categoria os projetos podem ser muito diversificados, focando na valorização do patrimônio local, no desenvolvimento sustentável das comunidades e na promoção de experiências autênticas.</p>
+            <h2>SAÚDE</h2>
+            <p>Projetos voltados para a melhoria da saúde pública, acesso a serviços médicos e promoção do bem-estar das comunidades.</p>
           </div>
         </div>
         <button className="btn-adicionar">+ Adicionar projeto nessa categoria...</button>
       </section>
 
-      {/* Cards de estatísticas */}
       <section className="categoria-stats">
         <div className="stat-card">
           <span className="stat-numero">4</span>
@@ -81,7 +70,6 @@ function CategoriaTurismo() {
 
       <hr className="categoria-divisor" />
 
-      {/* Tabela de projetos */}
       <section className="categoria-tabela-container">
         <table className="categoria-tabela">
           <thead>
@@ -98,17 +86,14 @@ function CategoriaTurismo() {
                 <td>{projeto.nome}</td>
                 <td>{projeto.submissao}</td>
                 <td>{projeto.atualizacao}</td>
-                <td>
-                  <FiInfo size={22} color="#6B0F2B" style={{ cursor: 'pointer' }} />
-                </td>
+                <td><FiInfo size={22} color="#6B0F2B" style={{ cursor: 'pointer' }} /></td>
               </tr>
             ))}
           </tbody>
         </table>
       </section>
-
     </div>
   )
 }
 
-export default CategoriaTurismo
+export default CategoriaSaude
