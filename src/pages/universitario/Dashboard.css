@@ -1,0 +1,380 @@
+/* ==========================================================================
+   1. RESET BÁSICO, FONTES E VARIÁVEIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --cor-fundo-bege: #fdf2ce;       /* Cor bege/creme idêntica ao fundo */
+    --cor-texto-vinho: #5e0d2f;      /* Vinho dos títulos e bordas dos cards */
+    --cor-borda-laranja: #f58220;    /* Laranja vivo da borda do quadrado principal */
+    --cor-botao-fundo: #ffebd2;      /* Fundo claro dos botões e busca */
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--cor-fundo-bege);
+}
+
+/* O container principal agora mantém a cor bege de fundo */
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--cor-fundo-bege);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Topo / Navbar */
+.navbar {
+    background-color: var(--cor-fundo-bege);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%; 
+}
+
+.logo-topo img {
+    height: 40px;
+
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cor-texto-vinho);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.nav-links span {
+  color: #6B0F2B;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-bottom: 2px solid #6B0F2B;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid var(--cor-texto-vinho);
+}
+
+
+/* ==========================================================================
+   2. ESTILOS DA SEÇÃO HERO E CATEGORIAS
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding: 60px 5%;
+    background-color: #fff;
+    background-image: url(../../assets/fundo.png); 
+    background-size: 450px; 
+    background-repeat: repeat; 
+    position: relative;
+}
+
+.hero-images-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    padding: 0 5%;
+    left: 0;
+    pointer-events: none;
+}
+
+.logo-grande img, .icone-perfil img {
+    height: 90px;
+}
+
+.hero-section h1 {
+    font-family: 'Baloo 2', sans-serif;
+    color: var(--cor-texto-vinho);
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.hero-section p {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'inter', sans-serif;
+}
+
+.search-bar {
+    background-color: var(--cor-botao-fundo);
+    border: 2px solid var(--cor-borda-orange, #f58220);
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+    color: #333;
+    margin-left: 10px;
+}
+
+.categories-section {
+    background-color: var(--cor-fundo-bege);
+    padding: 40px 5%;
+}
+
+.categories-section h2 {
+    color: var(--cor-texto-vinho);
+    font-size: 1.4rem;
+    margin-bottom: 35px;
+}
+
+.categories-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-item img {
+    height: 80px;
+}
+
+.category-item span {
+    font-weight: bold;
+    color: #000;
+}
+
+
+/* ==========================================================================
+   3. O QUADRADO DOS PROJETOS (CORRIGIDO)
+   ========================================================================== */
+/* Margem externa para criar o respiro bege ao redor do quadrado */
+.projects-box-container {
+    background-color: var(--cor-fundo-bege);
+    padding: 0 2% 40px 2%; 
+}
+
+/* O Bloco interno: Quadrado Branco com a Borda Alaranjada */
+.projects-container-inner {
+    background-color: #ffffff;
+    border: 3px solid var(--cor-borda-laranja);
+    padding: 40px 4%;
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.projects-header h2 {
+    color: var(--cor-texto-vinho);
+    font-size: 1.4rem;
+}
+
+.btn-ver-todos {
+    background-color: #e5e5e5;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    color: var(--cor-texto-vinho);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Grid de cards internos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Configuração de cada Card individual */
+.project-card {
+    border: 2px solid var(--cor-texto-vinho);
+    padding: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.project-card .card-icon {
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.project-card .card-icon img {
+    height: 40px;
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #000;
+    min-height: 45px;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.btn-visualizar {
+    background-color: var(--cor-botao-fundo);
+    border: 1px solid var(--cor-borda-laranja);
+    color: var(--cor-texto-vinho);
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%; 
+}
+
+
+/* ==========================================================================
+   4. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .search-bar { width: 70%; }
+}
+
+@media (max-width: 900px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .categories-grid { justify-content: center; gap: 30px; }
+    .hero-images-container { display: none; }
+    .search-bar { width: 90%; }
+    .hero-section h1 { font-size: 3.5rem; }
+}
+
+/* Menu Lateral */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 350px;
+  height: 100vh;
+  background-color: #6B0F2B;
+  z-index: 1000;
+  transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-lateral.aberto {
+  left: 0;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.menu-fechar {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #E8A020;
+  font-size: 24px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.menu-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 8px;
+}
+
+.menu-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #a0506e;
+  border: 2px solid #E8A020;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.menu-perfil h3 {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Baloo 2', cursive;
+}
+
+.menu-perfil p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.menu-divider {
+  height: 1px;
+  background-color: rgba(255,255,255,0.2);
+  margin: 8px 0;
+}
+
+.menu-itens {
+  list-style: none;
+  width: 100%;
+}
+
+.menu-itens li {
+  padding: 18px 24px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'inter', sans-serif;
+}
+
+.menu-itens li:hover {
+  background-color: rgba(255,255,255,0.1);
+}

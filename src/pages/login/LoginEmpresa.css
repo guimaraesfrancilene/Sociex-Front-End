@@ -1,0 +1,74 @@
+.login-bemvindo {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-instrucao {
+  color: var(--cor-destaque);
+  font-size: 25px !important;
+  font-weight: medium;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-campo label {
+  color: var(--cor-primaria);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.login-campo input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
+}
+
+.login-campo input:focus {
+  border-color: var(--cor-primaria);
+}
+
+.login-senha-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.login-senha-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 8px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.login-icone-olho {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-cadastro {
+  text-align: center;
+  font-size: 14px;
+  color: var(--cor-texto);
+}
+
+.login-cadastro a {
+  color: var(--cor-destaque);
+  font-weight: bold;
+  text-decoration: underline;
+}

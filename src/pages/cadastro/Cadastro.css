@@ -1,0 +1,21 @@
+.cadastro-titulo {
+  color: white;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.cadastro-instrucao {
+  color: var(--cor-destaque);
+  margin-bottom: 8px;
+  font-size: 25px !important;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.cadastro-card {
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
