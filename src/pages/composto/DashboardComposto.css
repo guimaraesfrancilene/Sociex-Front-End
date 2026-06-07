@@ -104,14 +104,13 @@ html, body {
 }
 
 .search-bar {
-    background-color: var(--cor-botao-fundo);
-    border: 2px solid var(--cor-borda-orange, #f58220);
-    border-radius: 8px;
-    padding: 10px 15px;
-    width: 50%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
+  background-color: var(--cor-botao-fundo);
+  border: 2px solid #f58220;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
 
 .search-bar input {
@@ -122,6 +121,36 @@ html, body {
     outline: none;
     color: #333;
     margin-left: 10px;
+}
+
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+.btn-adicionar-projeto {
+  background-color: #E8A020;
+  color: white;
+  border: 2px solid #E8A020;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-adicionar-projeto:hover {
+  background-color: #c8881a;
 }
 
 .categories-section {
