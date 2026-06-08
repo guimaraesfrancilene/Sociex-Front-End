@@ -12,12 +12,11 @@ import CategoriaTurismo from './pages/universitario/categoria/CategoriaTurismo'
 import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao'
 import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
 import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgropecuaria'
-/*import Footer from './components/Footer'*/
+import AdicionarProjeto from './pages/composto/AdicionarProjeto'
 
 
 function App() {
   return (
-   /* <> */
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login/universitario" element={<LoginUniversitario />} />
@@ -31,11 +30,9 @@ function App() {
       <Route path="/universitario/categoria/turismo" element={<CategoriaTurismo />} />
       <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
       <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
-      <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria />} />
+      <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria/>} />
+      <Route path="/composto/adicionarprojeto" element={<AdicionarProjeto />} />
     </Routes>
-    
-   /* <Footer />
-    </>*/
   )
 }
 

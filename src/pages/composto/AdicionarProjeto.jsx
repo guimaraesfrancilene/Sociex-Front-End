@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'; // Certifique-se de que o caminho do CSS está correto
+import './AdicionarProjeto.css'; // Certifique-se de que o caminho do CSS está correto
 
 export default function QuestionarioSociex() {
   // Estado para controlar a etapa atual (1 a 4)
