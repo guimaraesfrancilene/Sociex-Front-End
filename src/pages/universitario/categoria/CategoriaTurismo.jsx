@@ -6,7 +6,6 @@ import { FiInfo} from 'react-icons/fi'
 
 const projetos = [
   { id: 1, nome: 'App TurismoBR', submissao: '27/JAN/23', atualizacao: '23/ABR/23' },
-  
   { id: 2, nome: 'MuseuVirtual', submissao: '20/ABR/23', atualizacao: '12/JUL/23' },
   { id: 3, nome: 'TurismoSustentável', submissao: '25/DEZ/23', atualizacao: '25/MAR/24' },
   { id: 4, nome: 'CulturaFest', submissao: '01/FEV/23', atualizacao: '15/MAI/23' },

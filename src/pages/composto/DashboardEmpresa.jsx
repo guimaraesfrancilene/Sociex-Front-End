@@ -10,7 +10,7 @@ import imgAgropecuaria from '../../assets/agropecuaria.png'
 import { 
   FiSearch, 
   FiPlus,
-  FiSettings, 
+  FiSettings
 } from 'react-icons/fi'
 
 const projetos = [
@@ -39,7 +39,6 @@ function DashboardEmpresa() {
 
   return (
     <main className="main-container">
-      
       {/* Navbar */}
       <header className="navbar">
         <div className="logo-topo" >

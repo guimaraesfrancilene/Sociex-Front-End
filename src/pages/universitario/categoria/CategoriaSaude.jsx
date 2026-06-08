@@ -5,8 +5,11 @@ import imgMenu from '../../../assets/menulateral.png'
 import { FiInfo} from 'react-icons/fi'
 
 const projetos = [
-  { id: 1, nome: 'Projeto Saúde 1', submissao: '27/JAN/23', atualizacao: '23/ABR/23' },
-  { id: 2, nome: 'Projeto Saúde 2', submissao: '20/ABR/23', atualizacao: '12/JUL/23' },
+  { id: 1, nome: 'Saúde+', submissao: '27/JAN/23', atualizacao: '23/ABR/23' },
+  { id: 2, nome: 'Saúde em Foco', submissao: '20/ABR/23', atualizacao: '12/JUL/23' },
+  { id: 3, nome: 'MedConnect', submissao: '25/DEZ/23', atualizacao: '25/MAR/24' },
+  { id: 4, nome: 'Saúde Sigital', submissao: '01/FEV/23', atualizacao: '15/MAI/23' },
+  { id: 5, nome: 'DiskSaúde', submissao: '20/ABR/25', atualizacao: '20/JUL/23' },
 ]
 
 function CategoriaSaude() {
