@@ -111,7 +111,8 @@ function Dashboard() {
         <div className="projects-container-inner">
           <div className="projects-header">
             <h2>PROJETOS A SEREM ACEITOS:</h2>
-            <button className="btn-ver-todos"><FiSettings /> VER TODOS OS PROJETOS</button>
+             <span className="btn-ver-todos" onClick={() => navigate('/visaogeralprojeto')}> 
+            <FiSettings /> VER TODOS OS PROJETOS </span>
           </div>
           <div className="projects-grid">
             {projetosFiltrados.map((projeto) => (

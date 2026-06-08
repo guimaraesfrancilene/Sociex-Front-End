@@ -23,10 +23,10 @@ const projetos = [
 ]
 
 const categorias = [
-  { icone: imgTurismo, nome: 'Turismo e Cultura' },
-  { icone: imgEducacao, nome: 'Educação' },
-  { icone: imgSaude, nome: 'Saúde' },
-  { icone: imgAgropecuaria, nome: 'Agropecuária' },
+  { icone: imgTurismo, nome: 'Turismo e Cultura', path: '/universitario/categoria/turismo' },
+  { icone: imgEducacao, nome: 'Educação', path: '/universitario/categoria/educacao' },
+  { icone: imgSaude, nome: 'Saúde', path: '/universitario/categoria/saude' },
+  { icone: imgAgropecuaria, nome: 'Agropecuária', path: '/universitario/categoria/agropecuaria' },
 ]
 
 function DashboardSociedade() {
@@ -42,7 +42,7 @@ function DashboardSociedade() {
 
       {/* Navbar */}
       <header className="navbar">
-        <div>
+        <div className="logo-topo" >
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">
@@ -96,7 +96,7 @@ function DashboardSociedade() {
         <h2>CATEGORIAS :</h2>
         <div className="categories-grid">
           {categorias.map((cat) => (
-            <div key={cat.nome} className="category-item">
+            <div key={cat.nome} className="category-item" onClick={() => navigate(cat.path)} style={{ cursor: 'pointer' }}>
               <img src={cat.icone} alt={cat.nome} style={{ height: '100px' }} />
               <span>{cat.nome}</span>
             </div>
@@ -110,7 +110,7 @@ function DashboardSociedade() {
           <div className="projects-header">
             <h2>PROJETOS EM ANDAMENTO:</h2>
               <span className="btn-ver-todos" onClick={() => navigate('/visaogeralprojeto')}> 
-             <FiSettings /> VER TODOS OS PROJETOS </span>
+            <FiSettings /> VER TODOS OS PROJETOS </span>
           </div>
           <div className="projects-grid">
             {projetosFiltrados.map((projeto) => (
