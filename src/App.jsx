@@ -7,17 +7,18 @@ import CadastroUniversitario from './pages/cadastro/CadastroUniversitario'
 import CadastroEmpresa from './pages/cadastro/CadastroEmpresa'
 import CadastroSociedade from './pages/cadastro/CadastroSociedade'
 import Dashboard from './pages/universitario/Dashboard'
-import DashboardComposto from './pages/composto/DashboardComposto'
+import DashboardEmpresa from './pages/composto/DashboardEmpresa'
 import CategoriaTurismo from './pages/universitario/categoria/CategoriaTurismo'
 import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao'
 import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
 import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgropecuaria'
-/*import Footer from './components/Footer'*/
+import AdicionarProjeto from './pages/composto/AdicionarProjeto'
+import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
+import DashboardSociedade from './pages/composto/DashboardSociedade';
 
 
 function App() {
   return (
-   /* <> */
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login/universitario" element={<LoginUniversitario />} />
@@ -27,15 +28,16 @@ function App() {
       <Route path="/cadastro/empresa" element={<CadastroEmpresa />} /> 
       <Route path="/cadastro/sociedade" element={<CadastroSociedade />} /> 
       <Route path="/universitario/dashboard" element={<Dashboard />} />
-      <Route path="/composto/dashboard" element={<DashboardComposto />} />
+      <Route path="/composto/dashboardempresa" element={<DashboardEmpresa />} />
+      <Route path="/composto/dashboardsociedade" element={<DashboardSociedade/>} />
       <Route path="/universitario/categoria/turismo" element={<CategoriaTurismo />} />
       <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
       <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
-      <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria />} />
+      <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria/>} />
+      <Route path="/composto/adicionarprojeto" element={<AdicionarProjeto />} />
+      <Route path="/visaogeralprojeto" element={<VisaoGeralProjeto />}
+/>
     </Routes>
-    
-   /* <Footer />
-    </>*/
   )
 }
 

@@ -1,0 +1,316 @@
+:root {
+  --bg-color: #fdf6e2;
+  --primary-color: #6a1b29;
+  --text-color: #4a3b32;
+  --border-color: #b58d86;
+  --input-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container Principal */
+.app-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Ocultar etapas inativas do formulário */
+.form-step {
+  display: none;
+}
+.form-step.active {
+  display: block;
+}
+
+/* Indicador de Progresso (Stepper) */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.stepper::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--border-color);
+  z-index: 1;
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 3px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.step.active .step-circle, 
+.step.completed .step-circle {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.step-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 8px;
+  color: var(--text-color);
+}
+
+/* Estrutura do Cartão */
+.card {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.step-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.step-header span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.step-header h2 {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin: 5px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.step-header p {
+  color: #b08d57;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Grupos de Formulário e Inputs */
+.form-group {
+  margin-bottom: 35px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--primary-color);
+  line-height: 1.4;
+}
+
+.form-group label span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #7a6b62;
+  margin-top: 6px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.radio-group.row-layout {
+  flex-direction: row;
+  gap: 35px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.radio-option input[type="radio"] {
+  accent-color: var(--primary-color);
+  width: 20px;
+  height: 20px;
+}
+
+input[type="text"], 
+textarea, 
+select {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+input[type="text"]::placeholder, 
+textarea::placeholder {
+  color: #c4b4a9;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Caixa dos Termos de Uso */
+.terms-box {
+  background-color: #fff;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.terms-box h4 {
+  margin: 0 0 12px 0;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.terms-box p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 18px;
+  font-weight: 500;
+}
+
+.checkbox-option input {
+  accent-color: var(--primary-color);
+  width: 18px;
+  height: 18px;
+}
+
+/* Botões de Navegação Inferiores */
+.actions-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  padding: 14px 45px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1.5px solid var(--border-color);
+}
+
+/* Layout Estilizado para a Tela de Sucesso */
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.success-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(106, 27, 41, 0.15);
+  margin-bottom: 30px;
+}
+
+.success-title {
+  color: var(--primary-color);
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.success-text {
+  color: var(--text-color);
+  font-size: 16px;
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 0 0 35px 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './Dashboard.css'
+import './DashboardEmpresa.css'
 import imgMenu from '../../assets/menulateral.png'
 import imgLogo from '../../assets/logo1.png'
 import imgTurismo from '../../assets/turismo.png'
@@ -9,8 +9,9 @@ import imgSaude from '../../assets/saude.png'
 import imgAgropecuaria from '../../assets/agropecuaria.png'
 import { 
   FiSearch, 
+  FiPlus,
   FiUser, 
-  FiFileText, 
+  FiFileText,  
   FiLogOut, 
   FiEdit, 
   FiSettings, 
@@ -27,13 +28,13 @@ const projetos = [
 ]
 
 const categorias = [
-  { icone: imgTurismo, nome: 'Turismo e Cultura', path: '/universitario/categoria/turismo' },
-  { icone: imgEducacao, nome: 'Educação', path: '/universitario/categoria/educacao' },
-  { icone: imgSaude, nome: 'Saúde', path: '/universitario/categoria/saude' },
-  { icone: imgAgropecuaria, nome: 'Agropecuária', path: '/universitario/categoria/agropecuaria' },
+  { icone: imgTurismo, nome: 'Turismo e Cultura' },
+  { icone: imgEducacao, nome: 'Educação' },
+  { icone: imgSaude, nome: 'Saúde' },
+  { icone: imgAgropecuaria, nome: 'Agropecuária' },
 ]
 
-function Dashboard() {
+function DashboardComposto() {
   const [busca, setBusca] = useState('')
   const [menuAberto, setMenuAberto] = useState(false)
   const navigate = useNavigate()
@@ -55,13 +56,13 @@ function Dashboard() {
         <div className="menu-perfil">
           <div className="menu-avatar"><FiUser /></div>
           <h3>Nome do Usuário</h3>
-          <p>Estudante</p>
+          <p>Empresario</p>
         </div>
         <div className="menu-divider" />
         <ul className="menu-itens">
-          <li onClick={() => navigate('/universitario/projetos')}><FiFileText /> Meus Projetos</li>
+          <li onClick={() => navigate('/composto/projetos')}><FiFileText /> Meus Projetos</li>
           <li onClick={() => navigate('/')}><FiLogOut /> Desconectar</li>
-          <li onClick={() => navigate('/universitario/perfil')}><FiEdit /> Editar Perfil</li>
+          <li onClick={() => navigate('/composto/perfil')}><FiEdit /> Editar Perfil</li>
         </ul>
       </div>
 
@@ -71,38 +72,61 @@ function Dashboard() {
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">
-        <span onClick={() => navigate('/universitario/dashboard')}>Início</span>
-        <span onClick={() => navigate('universitario/sobre')}>Sobre nós</span>
+          <a href="DashboardComposto.jsx" className="active">Início</a>
+          <a href="sobre.jsx">Sobre nós</a>
         </nav>
       </header>
 
       {/* Hero */}
       <section className="hero-section">
-        <div className="hero-images-container">
-          <img src={imgLogo} alt="Logo Sociex" style={{ height: '150px' }} />
-        </div>
-        <h1>SOCIEX</h1>
-        <p >TRANSFORME SEU PROBLEMA EM OPORTUNIDADE!</p>
-        <div className="search-bar">
-          <span><FiSearch /></span>
-          <input
-            type="text"
-            placeholder="Buscar Projetos"
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-          />
-        </div>
-      </section>
+          <div className="hero-images-container">
+            <img src={imgLogo} alt="Logo Sociex" style={{ height: '150px' }} />
+          </div>
+          <h1>SOCIEX</h1>
+          <p>TRANSFORME SEU PROBLEMA EM OPORTUNIDADE!</p>
+
+          <div className="search-wrapper">
+            <div className="search-bar">
+              <span><FiSearch /></span>
+              <input
+                type="text"
+                placeholder="Buscar Projetos"
+                value={busca}
+                onChange={(e) => setBusca(e.target.value)}
+              />
+            </div>
+            <button className="btn-adicionar-projeto" onClick={() => navigate('/composto/adicionarprojeto')}>
+              <FiPlus /> Adicionar Projeto
+            </button>
+          </div>
+
+          {busca && (
+            <div className="search-resultados">
+              {projetosFiltrados.length > 0 ? (
+                projetosFiltrados.map((projeto) => (
+                  <div key={projeto.id} className="search-resultado-item">
+                    <img src={projeto.icone} alt={projeto.titulo} style={{ height: '30px' }} />
+                    <span>{projeto.titulo}</span>
+                  </div>
+                ))
+              ) : (
+                <p className="search-sem-resultado">Nenhum projeto encontrado</p>
+              )}
+            </div>
+          )}
+
+        </section>
 
       {/* Categorias */}
       <section className="categories-section">
         <h2>CATEGORIAS :</h2>
         <div className="categories-grid">
-        {categorias.map((cat) => (
-          <div key={cat.nome} className="category-item" onClick={() => navigate(cat.path)} style={{ cursor: 'pointer' }}>
-            <img src={cat.icone} alt={cat.nome} style={{ height: '100px' }} />
-            <span>{cat.nome}</span>
-            </div>))}
+          {categorias.map((cat) => (
+            <div key={cat.nome} className="category-item">
+              <img src={cat.icone} alt={cat.nome} style={{ height: '100px' }} />
+              <span>{cat.nome}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -110,8 +134,9 @@ function Dashboard() {
       <section className="projects-box-container">
         <div className="projects-container-inner">
           <div className="projects-header">
-            <h2>PROJETOS A SEREM ACEITOS:</h2>
-            <button className="btn-ver-todos"><FiSettings /> VER TODOS OS PROJETOS</button>
+            <h2>PROJETOS EM ANDAMENTO:</h2>
+              <span className="btn-ver-todos" onClick={() => navigate('/visaogeralprojeto')}> 
+            <FiSettings /> VER TODOS OS PROJETOS </span>
           </div>
           <div className="projects-grid">
             {projetosFiltrados.map((projeto) => (
@@ -132,4 +157,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default DashboardComposto;
