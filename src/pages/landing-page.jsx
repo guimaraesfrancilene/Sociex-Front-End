@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './style.css'; // Certifique-se de que o arquivo CSS está na mesma pasta ou ajuste o caminho
-
+import './landing-page.css'; // Certifique-se de que o arquivo CSS está na mesma pasta ou ajuste o caminho
+import imgLogo from '../assets/logo.png'
+import imgMenu from '../assets/menulateral.png'
+import { useNavigate } from 'react-router-dom'
 export default function SobreNos() {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const openMenuBtnRef = useRef(null);
   const sidebarRef = useRef(null);
-
+  const navigate = useNavigate()
   // Função para rolar suavemente para o topo
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -47,7 +49,7 @@ export default function SobreNos() {
             ref={openMenuBtnRef}
             onClick={() => setIsSidebarActive(true)}
           >
-            <img src="menulateral.png" alt="Abrir Menu" className="menu-icon-img" />
+            <img src={imgMenu} alt="Abrir Menu" className="menu-icon-img" />
           </button>
           <nav className="nav-links">
             <a href=" ">Início</a>
@@ -67,12 +69,14 @@ export default function SobreNos() {
             <h1>Transformando problemas em <span>oportunidades.</span></h1>
             <p>O SOCIEX é a ponte entre o conhecimento acadêmico e as necessidades do mundo real. Projetado para transformar desafios complexos em oportunidades de impacto direto na sociedade.</p>
             <div className="hero-btns">
-              <a href="#" className="btn-primary">Ver Projetos</a>
+              <button onClick={() => navigate('/visaogeralprojeto')} className="lp-btn-primario">
+  Ver Projetos
+</button>
             </div>
           </div>
           <div className="hero-visual">
             <div className="visual-container">
-              <img src="logo-vazada.png" alt="Ilustração SOCIEX" />
+              <img src={imgLogo} alt="Ilustração SOCIEX" />
               <div className="blob-bg"></div>
             </div>
           </div>
@@ -113,7 +117,7 @@ export default function SobreNos() {
             </div>
             <div className="logo-image">
               <div className="hexagon-bg">
-                <img src="logo-vazada.png" alt="Abelha SociEx" />
+                <img src={imgLogo} alt="Ilustração SOCIEX" />
               </div>
             </div>
           </div>
@@ -168,7 +172,7 @@ export default function SobreNos() {
               <li><a href="#">Início</a></li>
               <li><a href="#">Explorar Projetos</a></li>
               <li><a href="sobre.html">Sobre Nós</a></li>
-              <li><a href="#">Publicar Desafio</a></li>
+              <li><button onClick={() => navigate('/Home')}>Criar Desafio</button></li>
             </ul>
           </div>
 
