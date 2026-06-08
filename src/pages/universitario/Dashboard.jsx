@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Dashboard.css'
 import imgMenu from '../../assets/menulateral.png'
-import imgLogo from '../../assets/logo.png'
+import imgLogo from '../../assets/logo1.png'
 import imgTurismo from '../../assets/turismo.png'
 import imgEducacao from '../../assets/educacao.png'
 import imgSaude from '../../assets/saude.png'
@@ -79,7 +79,7 @@ function Dashboard() {
       {/* Hero */}
       <section className="hero-section">
         <div className="hero-images-container">
-          <img src={imgLogo} alt="Logo Sociex" style={{ height: '90px' }} />
+          <img src={imgLogo} alt="Logo Sociex" style={{ height: '150px' }} />
         </div>
         <h1>SOCIEX</h1>
         <p >TRANSFORME SEU PROBLEMA EM OPORTUNIDADE!</p>
