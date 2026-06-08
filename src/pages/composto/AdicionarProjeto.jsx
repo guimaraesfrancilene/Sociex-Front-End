@@ -80,10 +80,9 @@ export default function QuestionarioSociex() {
 
   return (
     <div className="app-container">
-      
       {!showSuccess ? (
         <div id="form-area">
-          {/* Barra de progresso estilizada que ocupa mais espaço na tela */}
+          {/* Barra de progresso (Stepper) */}
           <div className="stepper">
             <div className={getStepClass(1)} id="step-indicator-1">
               <div className="step-circle">{getStepCircleText(1)}</div>
@@ -103,7 +102,7 @@ export default function QuestionarioSociex() {
             </div>
           </div>
 
-          {/* Container do formulário em formato de cartão centralizado */}
+          {/* Container do formulário centralizado */}
           <div className="card-container">
             <form id="multi-step-form" className="card" onSubmit={(e) => e.preventDefault()}>
               
@@ -261,7 +260,6 @@ export default function QuestionarioSociex() {
           <button type="button" className="btn btn-primary" onClick={restartForm}>Enviar outra resposta</button>
         </div>
       )}
-
     </div>
   );
 }
