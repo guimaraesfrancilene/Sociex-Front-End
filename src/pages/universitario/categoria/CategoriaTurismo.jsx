@@ -1,13 +1,11 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Categoria.css'
 import imgTurismo from '../../../assets/turismo.png'
 import imgMenu from '../../../assets/menulateral.png'
-import { FiInfo, FiChevronLeft, FiUser, FiFileText, FiLogOut, FiEdit } from 'react-icons/fi'
+import { FiInfo} from 'react-icons/fi'
 
 const projetos = [
   { id: 1, nome: 'App TurismoBR', submissao: '27/JAN/23', atualizacao: '23/ABR/23' },
-  
   { id: 2, nome: 'MuseuVirtual', submissao: '20/ABR/23', atualizacao: '12/JUL/23' },
   { id: 3, nome: 'TurismoSustentável', submissao: '25/DEZ/23', atualizacao: '25/MAR/24' },
   { id: 4, nome: 'CulturaFest', submissao: '01/FEV/23', atualizacao: '15/MAI/23' },
@@ -16,33 +14,14 @@ const projetos = [
 
 function CategoriaTurismo() {
   const navigate = useNavigate()
-  const [menuAberto, setMenuAberto] = useState(false)
 
   return (
     <div className="categoria-container">
 
-      {/* Menu Lateral */}
-      {menuAberto && (
-        <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
-      )}
-      <div className={`menu-lateral ${menuAberto ? 'aberto' : ''}`}>
-        <button className="menu-fechar" onClick={() => setMenuAberto(false)}><FiChevronLeft /></button>
-        <div className="menu-perfil">
-          <div className="menu-avatar"><FiUser /></div>
-          <h3>Nome do Usuário</h3>
-          <p>Estudante</p>
-        </div>
-        <div className="menu-divider" />
-        <ul className="menu-itens">
-          <li onClick={() => navigate('/universitario/projetos')}><FiFileText /> Meus Projetos</li>
-          <li onClick={() => navigate('/')}><FiLogOut /> Desconectar</li>
-          <li onClick={() => navigate('/universitario/perfil')}><FiEdit /> Editar Perfil</li>
-        </ul>
-      </div>
 
       {/* Navbar */}
       <header className="navbar">
-        <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
+        <div className="logo-topo">
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">

@@ -21,6 +21,14 @@ body {
   padding: 20px;
 }
 
+/* Ocultar etapas inativas do formulário */
+.form-step {
+  display: none;
+}
+.form-step.active {
+  display: block;
+}
+
 /* Indicador de Progresso (Stepper) */
 .stepper {
   display: flex;
@@ -72,10 +80,6 @@ body {
   border-color: var(--primary-color);
 }
 
-.step.completed .step-circle {
-  font-size: 18px;
-}
-
 .step-label {
   font-size: 11px;
   font-weight: 700;
@@ -93,7 +97,6 @@ body {
 .step-header {
   text-align: center;
   margin-bottom: 30px;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .step-header span {
@@ -121,7 +124,6 @@ body {
 /* Grupos de Formulário e Inputs */
 .form-group {
   margin-bottom: 35px;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .form-group label {
@@ -151,7 +153,6 @@ body {
 .radio-group.row-layout {
   flex-direction: row;
   gap: 35px;
-  flex-wrap: wrap;
 }
 
 .radio-option {
@@ -161,14 +162,12 @@ body {
   font-size: 16px;
   cursor: pointer;
   font-weight: 500;
-  user-select: none;
 }
 
 .radio-option input[type="radio"] {
   accent-color: var(--primary-color);
   width: 20px;
   height: 20px;
-  cursor: pointer;
 }
 
 input[type="text"], 
@@ -183,15 +182,14 @@ select {
   color: var(--text-color);
   font-size: 15px;
   box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
-input[type="text"]:focus-visible, 
-textarea:focus-visible, 
-select:focus-visible {
+input[type="text"]:focus, 
+textarea:focus, 
+select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(106, 27, 41, 0.1);
 }
 
 input[type="text"]::placeholder, 
@@ -211,7 +209,6 @@ textarea {
   border-radius: 8px;
   padding: 22px;
   margin-bottom: 20px;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .terms-box h4 {
@@ -236,14 +233,12 @@ textarea {
   cursor: pointer;
   margin-top: 18px;
   font-weight: 500;
-  user-select: none;
 }
 
 .checkbox-option input {
   accent-color: var(--primary-color);
   width: 18px;
   height: 18px;
-  cursor: pointer;
 }
 
 /* Botões de Navegação Inferiores */
@@ -264,20 +259,16 @@ textarea {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.btn:active {
-  transform: scale(0.98);
+.btn:hover {
+  opacity: 0.9;
 }
 
 .btn-primary {
   background-color: var(--primary-color);
   color: #fff;
-}
-
-.btn-primary:hover {
-  background-color: #52131e;
 }
 
 .btn-secondary {
@@ -286,57 +277,40 @@ textarea {
   border: 1.5px solid var(--border-color);
 }
 
-.btn-secondary:hover {
-  background-color: rgba(181, 141, 134, 0.1);
-}
-
-/* Layout Estilizado para a Nova Tela de Sucesso */
+/* Layout Estilizado para a Tela de Sucesso */
 .success-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 20px;
-  animation: fadeIn 0.5s ease-in-out;
+  padding: 40px 20px;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
-.success-banner-img {
-  width: 100%;
-  max-width: 700px;
+.success-img {
+  max-width: 100%;
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(106, 27, 41, 0.12);
-  margin-bottom: 40px;
-  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(106, 27, 41, 0.15);
+  margin-bottom: 30px;
 }
 
-.success-actions-vertical {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 320px;
+.success-title {
+  color: var(--primary-color);
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
 }
 
-.success-actions-vertical .btn-secondary {
-  background-color: #fff;
+.success-text {
+  color: var(--text-color);
+  font-size: 16px;
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 0 0 35px 0;
 }
 
 @keyframes fadeIn {
-  from { 
-    opacity: 0; 
-    transform: translateY(12px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-@media (max-width: 600px) {
-  .success-banner-img {
-    border-radius: 8px;
-    margin-bottom: 25px;
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
