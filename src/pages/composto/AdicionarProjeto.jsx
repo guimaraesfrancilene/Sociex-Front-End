@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'; // Certifique-se de que o caminho do CSS está correto
+import './style.css'; // Certifica-te de que o caminho do CSS está correto
 
 export default function QuestionarioSociex() {
   // Estado para controlar a etapa atual (1 a 4)
@@ -39,7 +39,7 @@ export default function QuestionarioSociex() {
     } else {
       // Validação do checkbox de termos na última etapa
       if (!formData.aceitouTermos) {
-        alert("Você precisa aceitar os termos de uso para finalizar.");
+        alert("Precisas de aceitar os termos de uso para finalizar.");
         return;
       }
       
@@ -49,10 +49,9 @@ export default function QuestionarioSociex() {
     }
   };
 
-  // Voltar etapa
+  // Voltar etapa (Corrigido para apenas decrementar)
   const handlePrev = () => {
     if (currentStep > 1) {
-      setCurrentStep((prev) => prev + 1); // Corrigido para diminuir a etapa
       setCurrentStep((prev) => prev - 1);
       window.scrollTo(0, 0);
     }
@@ -163,11 +162,11 @@ export default function QuestionarioSociex() {
                 <div className="form-group">
                   <label>
                     3. Qual o principal problema que afeta o desempenho da sua empresa?
-                    <span>Por favor, forneça detalhes sobre o impacto e a recorrência.</span>
+                    <span>Por favor, fornece detalhes sobre o impacto e a recorrência.</span>
                   </label>
                   <textarea
                     name="principalProblema"
-                    placeholder="Descreva o problema com o máximo de detalhes possível..."
+                    placeholder="Descreve o problema com o máximo de detalhes possível..."
                     value={formData.principalProblema}
                     onChange={handleChange}
                   ></textarea>
@@ -223,7 +222,7 @@ export default function QuestionarioSociex() {
                   <textarea
                     style={{ marginTop: '15px' }}
                     name="acoesTomadas"
-                    placeholder="Se respondeu 'Sim', descreva abaixo as ações tomadas..."
+                    placeholder="Se respondeste 'Sim', descreve abaixo as ações tomadas..."
                     value={formData.acoesTomadas}
                     onChange={handleChange}
                   ></textarea>
@@ -231,12 +230,12 @@ export default function QuestionarioSociex() {
 
                 <div className="form-group">
                   <label>
-                    6. Quais recursos você considera necessários para solucionar o problema?
+                    6. Quais recursos consideras necessários para solucionar o problema?
                     <span>(Ex: Financiamento, consultoria, treinamento, tecnologia, software...).</span>
                   </label>
                   <textarea
                     name="recursosNecessarios"
-                    placeholder="Descreva os recursos necessários..."
+                    placeholder="Descreve os recursos necessários..."
                     value={formData.recursosNecessarios}
                     onChange={handleChange}
                   ></textarea>
@@ -254,17 +253,17 @@ export default function QuestionarioSociex() {
                 </div>
 
                 <div className="form-group">
-                  <label>7. Há algum comentário adicional que deseja incluir?</label>
+                  <label>7. Há algum comentário adicional que desejas incluir?</label>
                   <textarea
                     name="comentarioAdicional"
-                    placeholder="Escreva aqui seu comentário..."
+                    placeholder="Escreve aqui o teu comentário..."
                     value={formData.comentarioAdicional}
                     onChange={handleChange}
                   ></textarea>
                 </div>
 
                 <div className="form-group">
-                  <label>8. Deseja tornar este projeto público para visualização de terceiros?</label>
+                  <label>8. Desejas tornar este projeto público para visualização de terceiros?</label>
                   <div className="radio-group row-layout">
                     <label className="radio-option">
                       <input
@@ -291,8 +290,8 @@ export default function QuestionarioSociex() {
                   <h4>📋 Termos de Uso</h4>
                   <p>
                     As informações fornecidas neste formulário serão utilizadas exclusivamente para fins de conexão 
-                    com equipes universitárias dentro da plataforma SOCIEX. Seus dados não serão compartilhados com 
-                    terceiros fora do ecossistema da plataforma. Ao finalizar, você concorda com os termos de uso e 
+                    com equipas universitárias dentro da plataforma SOCIEX. Os teus dados não serão partilhados com 
+                    terceiros fora do ecossistema da plataforma. Ao finalizar, concordas com os termos de uso e 
                     a política de privacidade do SOCIEX.
                   </p>
                 </div>
@@ -324,22 +323,31 @@ export default function QuestionarioSociex() {
           </form>
         </div>
       ) : (
-        /* TELA DE SUCESSO MODIFICADA */
-        <div id="success-screen" className="success-container">
-          <img 
-            src="image_c7835f.jpg" 
-            alt="Projeto Enviado com Sucesso" 
-            className="success-banner-img" 
-          />
-          
-          <div className="success-actions-vertical">
-            <button type="button" className="btn btn-primary" onClick={handleRestart}>
-              Enviar novo formulário
-            </button>
+        /* TELA DE SUCESSO COESA (ESTILO CARD CENTRALIZADO COM A TUA LOGO) */
+        <div className="success-overlay">
+          <div className="success-card">
             
-            <button type="button" className="btn btn-secondary" onClick={() => window.location.href = '/'}>
-              Concluído
-            </button>
+            {/* Imagem da tua logo adicionada e centralizada no topo */}
+            <img 
+              src="logo (2).png" 
+              alt="SOCIEX Logo" 
+              className="success-logo-img" 
+            />
+            
+            <h2 className="success-title">Projeto Enviado com Sucesso!</h2>
+            <p className="success-message">
+              Obrigado por enviares as tuas respostas. O questionário foi processado e armazenado com sucesso no ecossistema SOCIEX.
+            </p>
+            
+            <div className="success-actions-horizontal">
+              <button type="button" className="btn-success-outline" onClick={handleRestart}>
+                Enviar novo formulário
+              </button>
+              
+              <button type="button" className="btn-success-solid" onClick={() => window.location.href = '/'}>
+                Concluído
+              </button>
+            </div>
           </div>
         </div>
       )}
