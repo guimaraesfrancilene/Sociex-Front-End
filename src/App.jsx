@@ -15,12 +15,17 @@ import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgro
 import AdicionarProjeto from './pages/composto/AdicionarProjeto'
 import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
 import DashboardSociedade from './pages/composto/DashboardSociedade';
+import LandingPage from './pages/landing-page'
+
+
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<LandingPage />} /> 
+     { /* <Route path="/" element={<Home />} /> */}
+      <Route path="/home" element={<Home />} />
       <Route path="/login/universitario" element={<LoginUniversitario />} />
       <Route path="/login/empresa" element={<LoginEmpresa />} />
       <Route path="/login/sociedade" element={<LoginSociedade />} />
