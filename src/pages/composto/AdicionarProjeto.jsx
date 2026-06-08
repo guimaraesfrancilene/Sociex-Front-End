@@ -233,21 +233,10 @@ export default function QuestionarioSociex() {
                 <input type="checkbox" id="aceitouTermos" name="aceitouTermos" checked={formData.aceitouTermos} onChange={handleInputChange} />
                 Li e aceito os <strong>termos de uso</strong> e a <strong>política de privacidade</strong> do SOCIEX.
               </label>
-
-              {/* Imagem adicionada estritamente ao final da etapa 4 do formulário */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-                <img src="image_a4562e.jpg" alt="Estrutura do Formulário" className="success-img" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
-              </div>
             </div>
 
             <div className="actions-container">
               <button type="button" className="btn btn-secondary" id="btn-prev" style={{ display: currentStep === 1 ? 'none' : 'block' }} onClick={handlePrev}>Voltar</button>
-              
-              {/* Se estiver na última etapa, exibe opções adicionais ao lado do botão padrão */}
-              {currentStep === 4 && (
-                <button type="button" className="btn btn-secondary" onClick={restartForm}>Adicionar Outro Formulário</button>
-              )}
-
               <button type="button" className="btn btn-primary" id="btn-next" onClick={handleNext}>
                 {currentStep === 4 ? 'Concluir' : 'Próximo'}
               </button>
@@ -255,8 +244,14 @@ export default function QuestionarioSociex() {
           </form>
         </div>
       ) : (
+        /* Tela de Sucesso renderizando a imagem direto do link externo fornecido */
         <div id="success-screen" className="success-container" style={{ display: 'flex' }}>
-          <img src="image_c7835f.jpg" alt="Sucesso" className="success-img" />
+          <img 
+            src="https://www.image2url.com/r2/default/images/1780937861537-ca7e7a0c-79ae-469c-a885-3defd63c0926.png" 
+            alt="Projeto Enviado" 
+            className="success-img" 
+            style={{ width: '100%', maxWidth: '650px', height: 'auto', marginBottom: '30px' }}
+          />
           <h2 className="success-title">Questionário Concluído!</h2>
           <p className="success-text">As suas respostas foram enviadas e processadas com sucesso. Obrigado pela sua colaboração!</p>
           <button type="button" className="btn btn-primary" onClick={restartForm}>Enviar outra resposta</button>
