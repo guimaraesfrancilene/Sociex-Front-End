@@ -95,7 +95,7 @@ function DashboardComposto() {
                 onChange={(e) => setBusca(e.target.value)}
               />
             </div>
-            <button className="btn-adicionar-projeto" onClick={() => navigate('/composto/AdicionarProjeto')}>
+            <button className="btn-adicionar-projeto" onClick={() => navigate('/composto/adicionarprojeto')}>
               <FiPlus /> Adicionar Projeto
             </button>
           </div>

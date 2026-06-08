@@ -41,9 +41,17 @@ body {
   z-index: 1;
 }
 
-.step {
-  position: relative;
-  z-index: 2;
+.hero-section p {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'inter', sans-serif;
+}
+
+.search-bar {
+  background-color: var(--cor-botao-fundo);
+  border: 2px solid #f58220;
+  border-radius: 8px;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,43 +59,55 @@ body {
   text-align: center;
 }
 
-.step-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #fff;
-  border: 3px solid var(--border-color);
+.search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+    color: #333;
+    margin-left: 10px;
+}
+
+
+.search-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  color: var(--border-color);
-  transition: all 0.3s ease;
+  gap: 12px;
+  width: 50%;
+  margin: 0 auto;
 }
 
-.step.active .step-circle, 
-.step.completed .step-circle {
-  background-color: var(--primary-color);
-  color: #fff;
-  border-color: var(--primary-color);
-}
 
-.step.completed .step-circle {
-  font-size: 18px;
-}
-
-.step-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 8px;
-  color: var(--text-color);
-}
-
-/* Estrutura do Cartão */
-.card {
-  background: transparent;
+.btn-adicionar-projeto {
+  background-color: #E8A020;
+  color: white;
+  border: 2px solid #E8A020;
+  padding: 10px 20px;
   border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-adicionar-projeto:hover {
+  background-color: #c8881a;
+}
+
+.categories-section {
+    background-color: var(--cor-fundo-bege);
+    padding: 40px 5%;
+}
+
+.categories-section h2 {
+    color: var(--cor-texto-vinho);
+    font-size: 1.4rem;
+    margin-bottom: 35px;
 }
 
 .step-header {
@@ -199,36 +219,53 @@ textarea::placeholder {
   color: #c4b4a9;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 120px;
+.project-card p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
-/* Caixa dos Termos de Uso */
-.terms-box {
-  background-color: #fff;
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
-  padding: 22px;
-  margin-bottom: 20px;
-  animation: fadeIn 0.3s ease-in-out;
+.btn-visualizar {
+    background-color: var(--cor-botao-fundo);
+    border: 1px solid var(--cor-borda-laranja);
+    color: var(--cor-texto-vinho);
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%; 
 }
 
-.terms-box h4 {
-  margin: 0 0 12px 0;
-  color: var(--primary-color);
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 700;
+
+/* ==========================================================================
+   4. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .search-bar { width: 70%; }
 }
 
-.terms-box p {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
+@media (max-width: 900px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .categories-grid { justify-content: center; gap: 30px; }
+    .hero-images-container { display: none; }
+    .search-bar { width: 90%; }
+    .hero-section h1 { font-size: 3.5rem; }
 }
 
-.checkbox-option {
+/* Menu Lateral */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 350px;
+  height: 100vh;
+  background-color: #6B0F2B;
+  z-index: 1000;
+  transition: left 0.3s ease;
   display: flex;
   align-items: center;
   gap: 10px;
