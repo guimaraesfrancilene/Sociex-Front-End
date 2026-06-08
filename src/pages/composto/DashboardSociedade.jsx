@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './Dashboard.css'
+import './DashboardSociedade.css'
 import imgMenu from '../../assets/menulateral.png'
 import imgLogo from '../../assets/logo1.png'
 import imgTurismo from '../../assets/turismo.png'
@@ -9,12 +9,8 @@ import imgSaude from '../../assets/saude.png'
 import imgAgropecuaria from '../../assets/agropecuaria.png'
 import { 
   FiSearch, 
-  FiUser, 
-  FiFileText, 
-  FiLogOut, 
-  FiEdit, 
-  FiSettings, 
-  FiChevronLeft 
+  FiPlus, 
+  FiSettings,  
 } from 'react-icons/fi'
 
 const projetos = [
@@ -33,9 +29,8 @@ const categorias = [
   { icone: imgAgropecuaria, nome: 'Agropecuária', path: '/universitario/categoria/agropecuaria' },
 ]
 
-function Dashboard() {
+function DashboardSociedade() {
   const [busca, setBusca] = useState('')
-  const [menuAberto, setMenuAberto] = useState(false)
   const navigate = useNavigate()
 
   const projetosFiltrados = projetos.filter(p =>
@@ -45,64 +40,67 @@ function Dashboard() {
   return (
     <main className="main-container">
 
-      {/* Menu Lateral */}
-      {menuAberto && (
-        <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
-      )}
-
-      <div className={`menu-lateral ${menuAberto ? 'aberto' : ''}`}>
-        <button className="menu-fechar" onClick={() => setMenuAberto(false)}><FiChevronLeft /></button>
-        <div className="menu-perfil">
-          <div className="menu-avatar"><FiUser /></div>
-          <h3>Nome do Usuário</h3>
-          <p>Estudante</p>
-        </div>
-        <div className="menu-divider" />
-        <ul className="menu-itens">
-          <li onClick={() => navigate('/universitario/projetos')}><FiFileText /> Meus Projetos</li>
-          <li onClick={() => navigate('/')}><FiLogOut /> Desconectar</li>
-          <li onClick={() => navigate('/universitario/perfil')}><FiEdit /> Editar Perfil</li>
-        </ul>
-      </div>
-
       {/* Navbar */}
       <header className="navbar">
-        <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
+        <div className="logo-topo" >
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">
-        <span onClick={() => navigate('/universitario/dashboard')}>Início</span>
-        <span onClick={() => navigate('universitario/sobre')}>Sobre nós</span>
+          <a href="DashboardSociedade.jsx" className="active">Início</a>
+          <a href="sobre.jsx">Sobre nós</a>
         </nav>
       </header>
 
       {/* Hero */}
       <section className="hero-section">
-        <div className="hero-images-container">
-          <img src={imgLogo} alt="Logo Sociex" style={{ height: '150px' }} />
-        </div>
-        <h1>SOCIEX</h1>
-        <p >TRANSFORME SEU PROBLEMA EM OPORTUNIDADE!</p>
-        <div className="search-bar">
-          <span><FiSearch /></span>
-          <input
-            type="text"
-            placeholder="Buscar Projetos"
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-          />
-        </div>
-      </section>
+          <div className="hero-images-container">
+            <img src={imgLogo} alt="Logo Sociex" style={{ height: '150px' }} />
+          </div>
+          <h1>SOCIEX</h1>
+          <p>TRANSFORME SEU PROBLEMA EM OPORTUNIDADE!</p>
+
+          <div className="search-wrapper">
+            <div className="search-bar">
+              <span><FiSearch /></span>
+              <input
+                type="text"
+                placeholder="Buscar Projetos"
+                value={busca}
+                onChange={(e) => setBusca(e.target.value)}
+              />
+            </div>
+            <button className="btn-adicionar-projeto" onClick={() => navigate('/composto/adicionarprojeto')}>
+              <FiPlus /> Adicionar Projeto
+            </button>
+          </div>
+
+          {busca && (
+            <div className="search-resultados">
+              {projetosFiltrados.length > 0 ? (
+                projetosFiltrados.map((projeto) => (
+                  <div key={projeto.id} className="search-resultado-item">
+                    <img src={projeto.icone} alt={projeto.titulo} style={{ height: '30px' }} />
+                    <span>{projeto.titulo}</span>
+                  </div>
+                ))
+              ) : (
+                <p className="search-sem-resultado">Nenhum projeto encontrado</p>
+              )}
+            </div>
+          )}
+
+        </section>
 
       {/* Categorias */}
       <section className="categories-section">
         <h2>CATEGORIAS :</h2>
         <div className="categories-grid">
-        {categorias.map((cat) => (
-          <div key={cat.nome} className="category-item" onClick={() => navigate(cat.path)} style={{ cursor: 'pointer' }}>
-            <img src={cat.icone} alt={cat.nome} style={{ height: '100px' }} />
-            <span>{cat.nome}</span>
-            </div>))}
+          {categorias.map((cat) => (
+            <div key={cat.nome} className="category-item" onClick={() => navigate(cat.path)} style={{ cursor: 'pointer' }}>
+              <img src={cat.icone} alt={cat.nome} style={{ height: '100px' }} />
+              <span>{cat.nome}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -110,8 +108,8 @@ function Dashboard() {
       <section className="projects-box-container">
         <div className="projects-container-inner">
           <div className="projects-header">
-            <h2>PROJETOS A SEREM ACEITOS:</h2>
-             <span className="btn-ver-todos" onClick={() => navigate('/visaogeralprojeto')}> 
+            <h2>PROJETOS EM ANDAMENTO:</h2>
+              <span className="btn-ver-todos" onClick={() => navigate('/visaogeralprojeto')}> 
             <FiSettings /> VER TODOS OS PROJETOS </span>
           </div>
           <div className="projects-grid">
@@ -133,4 +131,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default DashboardSociedade;

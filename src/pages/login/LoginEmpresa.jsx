@@ -12,7 +12,7 @@ function LoginEmpresa() {
 
   function handleLogin() {
     if (email && senha) {
-      navigate('/composto/dashboard')
+      navigate('/composto/dashboardempresa')
     } else {
       alert('Preencha todos os campos!')
     }

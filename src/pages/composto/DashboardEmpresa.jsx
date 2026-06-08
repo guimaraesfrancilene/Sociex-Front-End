@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './DashboardComposto.css'
+import './DashboardEmpresa.css'
 import imgMenu from '../../assets/menulateral.png'
 import imgLogo from '../../assets/logo1.png'
 import imgTurismo from '../../assets/turismo.png'
@@ -10,12 +10,7 @@ import imgAgropecuaria from '../../assets/agropecuaria.png'
 import { 
   FiSearch, 
   FiPlus,
-  FiUser, 
-  FiFileText,  
-  FiLogOut, 
-  FiEdit, 
-  FiSettings, 
-  FiChevronLeft 
+  FiSettings
 } from 'react-icons/fi'
 
 const projetos = [
@@ -28,15 +23,14 @@ const projetos = [
 ]
 
 const categorias = [
-  { icone: imgTurismo, nome: 'Turismo e Cultura' },
-  { icone: imgEducacao, nome: 'Educação' },
-  { icone: imgSaude, nome: 'Saúde' },
-  { icone: imgAgropecuaria, nome: 'Agropecuária' },
+  { icone: imgTurismo, nome: 'Turismo e Cultura', path: '/universitario/categoria/turismo' },
+  { icone: imgEducacao, nome: 'Educação', path: '/universitario/categoria/educacao' },
+  { icone: imgSaude, nome: 'Saúde', path: '/universitario/categoria/saude' },
+  { icone: imgAgropecuaria, nome: 'Agropecuária', path: '/universitario/categoria/agropecuaria' },
 ]
 
-function DashboardComposto() {
+function DashboardEmpresa() {
   const [busca, setBusca] = useState('')
-  const [menuAberto, setMenuAberto] = useState(false)
   const navigate = useNavigate()
 
   const projetosFiltrados = projetos.filter(p =>
@@ -45,34 +39,13 @@ function DashboardComposto() {
 
   return (
     <main className="main-container">
-
-      {/* Menu Lateral */}
-      {menuAberto && (
-        <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
-      )}
-
-      <div className={`menu-lateral ${menuAberto ? 'aberto' : ''}`}>
-        <button className="menu-fechar" onClick={() => setMenuAberto(false)}><FiChevronLeft /></button>
-        <div className="menu-perfil">
-          <div className="menu-avatar"><FiUser /></div>
-          <h3>Nome do Usuário</h3>
-          <p>Empresario</p>
-        </div>
-        <div className="menu-divider" />
-        <ul className="menu-itens">
-          <li onClick={() => navigate('/composto/projetos')}><FiFileText /> Meus Projetos</li>
-          <li onClick={() => navigate('/')}><FiLogOut /> Desconectar</li>
-          <li onClick={() => navigate('/composto/perfil')}><FiEdit /> Editar Perfil</li>
-        </ul>
-      </div>
-
       {/* Navbar */}
       <header className="navbar">
-        <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
+        <div className="logo-topo" >
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">
-          <a href="DashboardComposto.jsx" className="active">Início</a>
+          <a href="DashboardEmpresa.jsx" className="active">Início</a>
           <a href="sobre.jsx">Sobre nós</a>
         </nav>
       </header>
@@ -122,11 +95,10 @@ function DashboardComposto() {
         <h2>CATEGORIAS :</h2>
         <div className="categories-grid">
           {categorias.map((cat) => (
-            <div key={cat.nome} className="category-item">
+              <div key={cat.nome} className="category-item" onClick={() => navigate(cat.path)} style={{ cursor: 'pointer' }}>
               <img src={cat.icone} alt={cat.nome} style={{ height: '100px' }} />
               <span>{cat.nome}</span>
-            </div>
-          ))}
+            </div> ))}
         </div>
       </section>
 
@@ -135,7 +107,8 @@ function DashboardComposto() {
         <div className="projects-container-inner">
           <div className="projects-header">
             <h2>PROJETOS EM ANDAMENTO:</h2>
-            <button className="btn-ver-todos"><FiSettings /> VER TODOS OS PROJETOS</button>
+              <span className="btn-ver-todos" onClick={() => navigate('/visaogeralprojeto')}> 
+            <FiSettings /> VER TODOS OS PROJETOS </span>
           </div>
           <div className="projects-grid">
             {projetosFiltrados.map((projeto) => (
@@ -156,4 +129,4 @@ function DashboardComposto() {
   )
 }
 
-export default DashboardComposto;
+export default DashboardEmpresa;
