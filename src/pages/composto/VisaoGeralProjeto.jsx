@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './VisaoGeralProjetos.css';
+import './VisaoGeralProjeto.css';
 
 // Dados fictícios baseados na imagem para renderizar os cards dinamicamente
 const projetosIniciais = [
