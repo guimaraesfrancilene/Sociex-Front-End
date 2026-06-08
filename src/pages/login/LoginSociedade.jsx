@@ -12,7 +12,7 @@ function LoginSociedade() {
 
   function handleLogin() {
     if (email && senha) {
-      navigate('/composto/dashboard')
+      navigate('/composto/dashboardsociedade')
     } else {
       alert('Preencha todos os campos!')
     }
