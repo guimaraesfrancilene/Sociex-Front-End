@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-/* Container Principal - Ocupa a largura total da tela */
+/* Container Principal - Garante alinhamento central vertical e horizontal absoluto */
 .app-container {
   width: 100%;
   min-height: 100vh;
@@ -23,16 +23,20 @@ body {
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;    /* Centraliza na horizontal */
+  justify-content: flex-start;
 }
 
-/* O form-area agora controla o alinhamento geral do topo largo */
+/* Área de conteúdo controlada para centralizar o bloco e expandir o topo de forma limpa */
 #form-area {
   width: 100%;
-  max-width: 1000px; /* Deixa o topo mais aberto e distribuído */
+  max-width: 900px; /* Largura ideal para o stepper ficar espaçado sem sumir da tela */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Força tudo dentro a buscar o centro */
 }
 
-/* Indicador de Progresso (Stepper) com o estilo idêntico ao enviado */
+/* Linha do tempo (Stepper) - Distribuição uniforme */
 .stepper {
   display: flex;
   justify-content: space-between;
@@ -40,17 +44,16 @@ body {
   margin-bottom: 50px;
   position: relative;
   width: 100%;
-  padding: 0 20px;
   box-sizing: border-box;
 }
 
-/* Linha horizontal passando exatamente atrás dos círculos */
+/* Linha conectora de fundo do Stepper ajustada */
 .stepper::before {
   content: '';
   position: absolute;
   top: 22px;
-  left: 50px;
-  right: 50px;
+  left: 45px;
+  right: 45px;
   height: 2px;
   background-color: var(--border-color);
   z-index: 1;
@@ -66,7 +69,7 @@ body {
   text-align: center;
 }
 
-/* Bolas com números romanos */
+/* Círculos das etapas */
 .step-circle {
   width: 44px;
   height: 44px;
@@ -80,10 +83,9 @@ body {
   font-size: 14px;
   color: var(--border-color);
   transition: all 0.3s ease;
-  box-shadow: 0 0 0 6px var(--bg-color); /* Cria o espaçamento ao redor da linha */
+  box-shadow: 0 0 0 6px var(--bg-color);
 }
 
-/* Estilo para etapas ativas e completadas */
 .step.active .step-circle {
   background-color: var(--primary-color);
   color: #fff;
@@ -96,25 +98,24 @@ body {
   border-color: var(--primary-color);
 }
 
-/* Rótulos abaixo das bolas */
 .step-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 12px;
   color: var(--text-color);
-  max-width: 140px;
+  max-width: 150px;
   word-wrap: break-word;
 }
 
-/* Alinhamento do Card centralizado */
+/* Garante o alinhamento central absoluto do Card */
 .card-container {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-/* Estilo do cartão que contém as perguntas */
+/* O cartão de perguntas com tamanho fixado e centralizado automaticamente */
 .card {
   background: #ffffff;
   border-radius: 16px;
@@ -122,7 +123,7 @@ body {
   box-shadow: 0 4px 24px rgba(106, 27, 41, 0.05);
   box-sizing: border-box;
   width: 100%;
-  max-width: 680px; /* Mantém as perguntas confortáveis para leitura */
+  max-width: 650px; /* Largura perfeita para não quebrar em telas grandes */
 }
 
 .form-step {
@@ -147,7 +148,7 @@ body {
 
 .step-header h2 {
   color: var(--primary-color);
-  font-size: 22px;
+  font-size: 20px;
   margin: 6px 0;
   text-transform: uppercase;
   font-weight: 700;
@@ -160,9 +161,8 @@ body {
   margin: 0;
 }
 
-/* Grupos de inputs e labels */
 .form-group {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .form-group label {
@@ -210,8 +210,7 @@ body {
 }
 
 input[type="text"], 
-textarea, 
-select {
+textarea {
   font-family: 'Inter', sans-serif;
   width: 100%;
   padding: 12px 16px;
@@ -225,15 +224,9 @@ select {
 }
 
 input[type="text"]:focus, 
-textarea:focus, 
-select:focus {
+textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-}
-
-input[type="text"]::placeholder, 
-textarea::placeholder {
-  color: #c4b4a9;
 }
 
 textarea {
@@ -241,7 +234,6 @@ textarea {
   min-height: 110px;
 }
 
-/* Box de Termos */
 .terms-box {
   background-color: #faf6f0;
   border: 1.5px solid var(--border-color);
@@ -274,13 +266,6 @@ textarea {
   font-weight: 500;
 }
 
-.checkbox-option input {
-  accent-color: var(--primary-color);
-  width: 16px;
-  height: 16px;
-}
-
-/* Botões de Ação */
 .actions-container {
   display: flex;
   justify-content: flex-end;
@@ -316,42 +301,12 @@ textarea {
   border: 1.5px solid var(--border-color);
 }
 
-/* Tela de Sucesso */
 .success-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 40px 20px;
-  animation: fadeIn 0.4s ease-in-out;
   width: 100%;
-  max-width: 680px;
-}
-
-.success-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(106, 27, 41, 0.15);
-  margin-bottom: 30px;
-}
-
-.success-title {
-  color: var(--primary-color);
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-}
-
-.success-text {
-  color: var(--text-color);
-  font-size: 15px;
-  max-width: 500px;
-  line-height: 1.6;
-  margin: 0 0 35px 0;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  max-width: 650px;
 }
