@@ -3,11 +3,13 @@ import './landing-page.css'; // Certifique-se de que o arquivo CSS está na mesm
 import imgLogo from '../assets/logo.png'
 import imgMenu from '../assets/menulateral.png'
 import { useNavigate } from 'react-router-dom'
+
 export default function SobreNos() {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const openMenuBtnRef = useRef(null);
   const sidebarRef = useRef(null);
-const navigate = useNavigate()
+  const navigate = useNavigate()
+  
   // Função para rolar suavemente para o topo
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -16,7 +18,6 @@ const navigate = useNavigate()
   // Efeito para fechar o menu ao clicar fora dele (equivalente ao seu script original)
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Se a sua sidebar estivesse ativa e o clique ocorresse fora dela e do botão de abrir...
       if (
         sidebarRef.current && 
         !sidebarRef.current.contains(event.target) &&
@@ -35,11 +36,6 @@ const navigate = useNavigate()
 
   return (
     <>
-      {/* AVISO: As tags que estavam dentro do <head> (meta, links de fontes, title) 
-        devem ser inseridas no arquivo 'public/index.html' do seu projeto React 
-        ou gerenciadas por pacotes como 'react-helmet'.
-      */}
-
       <main className="main-container">
         <header className="navbar">
           <button 
@@ -52,16 +48,10 @@ const navigate = useNavigate()
             <img src={imgMenu} alt="Abrir Menu" className="menu-icon-img" />
           </button>
           <nav className="nav-links">
-            <a href=" ">Início</a>
-            <a href="sobre.html" className="active">Sobre nós</a>
+            <a href="#!" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Início</a>
+            <a href="#!" onClick={(e) => { e.preventDefault(); navigate('/sobre'); }} className="active">Sobre nós</a>
           </nav>
         </header>
-
-        {/* Caso seu projeto use o elemento #sidebar, adicione a ref e a classe condicional dele assim:
-          <div id="sidebar" ref={sidebarRef} className={isSidebarActive ? 'active' : ''}>
-            <button onClick={() => setIsSidebarActive(false)}>Fechar</button>
-          </div>
-        */}
 
         <section className="vidyard-hero">
           <div className="hero-content">
@@ -69,13 +59,13 @@ const navigate = useNavigate()
             <h1>Transformando problemas em <span>oportunidades.</span></h1>
             <p>O SOCIEX é a ponte entre o conhecimento acadêmico e as necessidades do mundo real. Projetado para transformar desafios complexos em oportunidades de impacto direto na sociedade.</p>
             <div className="hero-btns">
-             <a 
-  href="#!" 
-  onClick={(e) => { e.preventDefault(); navigate('/visaogeralprojeto'); }} 
-  className="btn-primary"
->
-  Ver Projetos
-</a>
+              <a 
+                href="#!" 
+                onClick={(e) => { e.preventDefault(); navigate('/visaogeralprojeto'); }} 
+                className="btn-primary"
+              >
+                Ver Projetos
+              </a>
             </div>
           </div>
           <div className="hero-visual">
@@ -136,28 +126,28 @@ const navigate = useNavigate()
               <div className="avatar-circle avatar-vinho">HK</div>
               <h3>Hanna Kelly</h3>
               <p className="dev-role">PRODUCT OWNER</p>
-              <a href="https://github.com/Hkelly-llyx" className="view-profile">view profile ➔</a>
+              <a href="https://github.com/Hkelly-llyx" target="_blank" rel="noreferrer" className="view-profile">view profile ➔</a>
             </div>
 
             <div className="dev-card">
               <div className="avatar-circle avatar-ouro">KN</div>
               <h3>Keilane N.</h3>
               <p className="dev-role">SCRUM MASTER</p>
-              <a href="https://github.com/keilane23" className="view-profile">view profile ➔</a>
+              <a href="https://github.com/keilane23" target="_blank" rel="noreferrer" className="view-profile">view profile ➔</a>
             </div>
 
             <div className="dev-card">
               <div className="avatar-circle avatar-vinho">EV</div>
               <h3>Emanuele V.</h3>
               <p className="dev-role">DEVELOPER</p>
-              <a href="https://github.com/m4nuh-byt" className="view-profile">view profile ➔</a>
+              <a href="https://github.com/m4nuh-byt" target="_blank" rel="noreferrer" className="view-profile">view profile ➔</a>
             </div>
 
             <div className="dev-card">
               <div className="avatar-circle avatar-ouro">FG</div>
               <h3>Francilene G.</h3>
               <p className="dev-role">DEVELOPER</p>
-              <a href="https://github.com/guimaraesfrancilene" className="view-profile">view profile ➔</a>
+              <a href="https://github.com/guimaraesfrancilene" target="_blank" rel="noreferrer" className="view-profile">view profile ➔</a>
             </div>
           </div>
         </section>
@@ -173,20 +163,20 @@ const navigate = useNavigate()
           <div className="footer-col">
             <h3>Explore </h3>
             <ul>
-              <li><a href="#">Início</a></li>
-              <li><a href="#">Explorar Projetos</a></li>
-              <li><a href="sobre.html">Sobre Nós</a></li>
-              <li><a href="#">Publicar Desafio</a></li>
+              <li><a href="#!" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Início</a></li>
+              <li><a href="#!" onClick={(e) => { e.preventDefault(); navigate('/visaogeralprojeto'); }}>Explorar Projetos</a></li>
+              <li><a href="#!" onClick={(e) => { e.preventDefault(); navigate('/sobre'); }}>Sobre Nós</a></li>
+              <li><a href="#!" onClick={(e) => { e.preventDefault(); navigate('/Home'); }}>Publicar Desafio</a></li>
             </ul>
           </div>
 
           <div className="footer-col">
             <h3>Equipe </h3>
             <ul>
-              <li><a href="#">➔ Hanna Kelly</a></li>
-              <li><a href="#">➔ Keilane Nogueira</a></li>
-              <li><a href="#">➔ Emanuele Vitória</a></li>
-              <li><a href="#">➔ Francilene Guimarães</a></li>
+              <li><a href="https://github.com/Hkelly-llyx" target="_blank" rel="noreferrer">➔ Hanna Kelly</a></li>
+              <li><a href="https://github.com/keilane23" target="_blank" rel="noreferrer">➔ Keilane Nogueira</a></li>
+              <li><a href="https://github.com/m4nuh-byt" target="_blank" rel="noreferrer">➔ Emanuele Vitória</a></li>
+              <li><a href="https://github.com/guimaraesfrancilene" target="_blank" rel="noreferrer">➔ Francilene Guimarães</a></li>
             </ul>
           </div>
 

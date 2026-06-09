@@ -1,238 +1,269 @@
-/* Resets Básicos e Fonte */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* Importação alternativa caso queira garantir a fonte direto no componente */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
 
-.container-tela {
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
+.projetos-page {
+  font-family: 'Baloo 2', sans-serif;
+  background-color: #FFFFFF;
   min-height: 100vh;
   padding: 0 0 40px 0;
   box-sizing: border-box;
 }
 
-/* Header Superior (Fundo Creme) */
-.header-superior {
-  background-color: #fdf3d7;
+/* NAVBAR */
+.navbar-projetos {
+  background-color: #FAF1D6;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  border-bottom: 2px solid #EAEAEA;
 }
 
-.logo-area {
+.navbar-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
-.icone-colmeia {
-  font-size: 24px;
-  color: #4a0e2e;
+/* Simulação do pequeno ícone de favicón da abelha/colmeia */
+.mini-logo-hex {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: 2px solid #590623;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-.logo-area h1 {
-  font-size: 22px;
-  color: #1a1a1a;
-  margin: 0;
+.brand-title-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.main-title {
+  color: #000000;
+  font-size: 1.6rem;
   font-weight: 700;
+  margin: 0;
 }
 
-.logo-area .subtitulo {
-  font-size: 14px;
-  color: #555;
-  display: block;
-  margin-top: 2px;
+.subtitle-pending {
+  color: #555555;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-.nav-links {
+.navbar-right-links {
   display: flex;
   gap: 25px;
 }
 
-.nav-links a {
+.nav-link {
   text-decoration: none;
-  font-size: 16px;
-  color: #4a0e2e;
+  color: #590623;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
-.nav-links a.active {
-  color: #4a0e2e;
+.nav-link.active-link {
+  color: #590623;
+  border-bottom: 2px solid #590623;
 }
 
-/* Barra de Filtros e Busca */
-.barra-filtros {
-  background-color: #fdf3d7;
-  padding: 0 40px 20px 40px;
+/* BARRA DE FILTROS */
+.filter-bar {
+  background-color: #FAF1D6;
+  padding: 15px 40px;
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.busca-wrapper {
-  background-color: #fff;
-  border: 1px solid #707070;
+.search-container {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
   border-radius: 6px;
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 4px 12px;
   flex: 1;
-  max-width: 450px;
+  max-width: 400px;
 }
 
-.busca-wrapper input {
+.search-icon, .camera-icon {
+  color: #777777;
+  font-size: 1rem;
+}
+
+.search-input {
   border: none;
   outline: none;
   width: 100%;
-  padding: 0 10px;
-  font-size: 14px;
-  color: #333;
+  padding: 4px 8px;
+  font-size: 1rem;
+  font-family: 'Baloo 2', sans-serif;
 }
 
-.icone-lupa, .icone-camera {
-  color: #777;
-  cursor: pointer;
-}
-
-/* Dropdown de Categorias */
-.dropdown-categoria select {
-  background-color: #fff;
-  border: 1px solid #707070;
+.select-container select {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
   border-radius: 6px;
-  padding: 10px 15px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #555;
+  padding: 6px 30px 6px 12px;
+  font-size: 0.95rem;
+  color: #555555;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 600;
   cursor: pointer;
-  outline: none;
 }
 
-/* Botões de Filtro Direita */
-.grupo-botoes-filtro {
+.status-buttons {
   display: flex;
   gap: 15px;
-  margin-left: auto; /* Empurra para a direita */
+  margin-left: auto;
 }
 
-.btn-filtro {
-  background-color: #fff;
-  border: 1px solid #4a0e2e;
-  color: #4a0e2e;
-  padding: 8px 24px;
+.btn-status {
+  background-color: #590623;
+  color: #FFFFFF;
+  border: 1px solid #590623;
+  padding: 4px 24px;
   border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  font-family: 'Baloo 2', sans-serif;
 }
 
-.btn-filtro.todos {
-  background-color: #4a0e2e;
-  color: #fff;
+.btn-status.btn-outline {
+  background-color: #FFFFFF;
+  color: #590623;
 }
 
-/* Label Status */
-.label-status {
-  padding: 25px 40px 10px 40px;
-  font-size: 14px;
-  color: #4a0e2e;
+/* Rótulo de Status */
+.status-indicator-label {
+  display: block;
+  color: #590623;
   font-weight: 700;
-  margin: 0;
+  font-size: 1.1rem;
+  margin: 25px 40px 15px 40px;
 }
 
-/* Grid de Cards (Alinhamento Perfeito) */
-.grid-projetos {
+/* GRADE DE PROJETOS */
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas como na foto */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 25px;
   padding: 0 40px;
 }
 
-/* Responsividade Básica (Opcional, quebra se a tela encolher muito) */
-@media (max-width: 1024px) {
-  .grid-projetos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Estilização do Card Único */
-.card-projeto {
-  border: 1.5px solid #4a0e2e;
+/* CARD DE PROJETO */
+.project-card {
+  border: 2px solid #590623;
   border-radius: 8px;
-  padding: 20px;
-  background-color: #fff;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  background-color: #FFFFFF;
 }
 
-.titulo-projeto {
-  font-size: 18px;
+.project-card-title {
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #000;
-  margin: 0 0 12px 0;
+  color: #000000;
+  margin-bottom: 12px;
+  line-height: 1.2;
 }
 
-.tag-categoria {
-  background-color: #4a0e2e;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 14px;
+.project-tag {
+  background-color: #590623;
+  color: #FFFFFF;
+  align-self: flex-start;
+  padding: 2px 20px;
   border-radius: 20px;
-  margin-bottom: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-.data-projeto {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 25px;
+.project-date {
+  color: #888888;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
-/* Ações do Card (Botão e Check/X) */
-.card-actions {
+/* RODAPÉ DO CARD */
+.project-card-footer {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-top: auto; /* Força os botões para a base do card */
 }
 
 .btn-visualizar {
-  background-color: #fdf3d7;
-  border: 1px solid #e2cb99;
-  color: #5c4424;
-  font-weight: 700;
-  font-size: 12px;
-  padding: 8px 16px;
+  background-color: #FAF1D6;
+  color: #590623;
+  border: 1px solid #D27828;
+  padding: 3px 14px;
   border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
+  font-family: 'Baloo 2', sans-serif;
 }
 
-.icones-decisao {
+.action-icons {
   display: flex;
   gap: 8px;
 }
 
-.btn-acao {
-  width: 26px;
-  height: 26px;
+.icon-btn {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 1.5px solid transparent;
+  border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
   cursor: pointer;
-  background: #fff;
 }
 
-.btn-acao.aceitar {
-  border-color: #78c27a;
-  color: #78c27a;
+.check-btn {
+  border-color: #62A470;
+  color: #62A470;
+  background-color: transparent;
 }
 
-.btn-acao.recusar {
-  border-color: #cc4141;
-  color: #cc4141;
+.cross-btn {
+  border-color: #C13B3B;
+  color: #C13B3B;
+  background-color: transparent;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .navbar-projetos {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+  .filter-bar {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .status-buttons {
+    margin-left: 0;
+    justify-content: space-between;
+  }
+  .projects-grid {
+    padding: 0 20px;
+  }
+  .status-indicator-label {
+    margin: 20px 20px 10px 20px;
+  }
 }
