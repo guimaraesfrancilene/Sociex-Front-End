@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Dashboard.css'
+import Sidebar from '../../components/Sidebar'
 import imgMenu from '../../assets/menulateral.png'
 import imgLogo from '../../assets/logo1.png'
 import imgTurismo from '../../assets/turismo.png'
@@ -8,13 +9,8 @@ import imgEducacao from '../../assets/educacao.png'
 import imgSaude from '../../assets/saude.png'
 import imgAgropecuaria from '../../assets/agropecuaria.png'
 import { 
-  FiSearch, 
-  FiUser, 
-  FiFileText, 
-  FiLogOut, 
-  FiEdit, 
-  FiSettings, 
-  FiChevronLeft 
+  FiSearch,  
+  FiSettings,   
 } from 'react-icons/fi'
 
 const projetos = [
@@ -43,27 +39,14 @@ function Dashboard() {
   )
 
   return (
+ <> <Sidebar 
+  menuAberto={menuAberto} 
+  setMenuAberto={setMenuAberto} 
+  nomeUsuario="Lucas Alencar" 
+  tipoUsuario="Estudante" 
+/>
     <main className="main-container">
-
-      {/* Menu Lateral */}
-      {menuAberto && (
-        <div className="menu-overlay" onClick={() => setMenuAberto(false)} />
-      )}
-
-      <div className={`menu-lateral ${menuAberto ? 'aberto' : ''}`}>
-        <button className="menu-fechar" onClick={() => setMenuAberto(false)}><FiChevronLeft /></button>
-        <div className="menu-perfil">
-          <div className="menu-avatar"><FiUser /></div>
-          <h3>Nome do Usuário</h3>
-          <p>Estudante</p>
-        </div>
-        <div className="menu-divider" />
-        <ul className="menu-itens">
-          <li onClick={() => navigate('/universitario/projetos')}><FiFileText /> Meus Projetos</li>
-          <li onClick={() => navigate('/')}><FiLogOut /> Desconectar</li>
-          <li onClick={() => navigate('/universitario/perfil')}><FiEdit /> Editar Perfil</li>
-        </ul>
-      </div>
+    
 
       {/* Navbar */}
       <header className="navbar">
@@ -130,6 +113,7 @@ function Dashboard() {
       </section>
 
     </main>
+    </>
   )
 }
 

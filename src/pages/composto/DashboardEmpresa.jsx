@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './DashboardEmpresa.css'
+import Sidebar from '../../components/Sidebar'
 import imgMenu from '../../assets/menulateral.png'
 import imgLogo from '../../assets/logo1.png'
 import imgTurismo from '../../assets/turismo.png'
@@ -31,6 +32,7 @@ const categorias = [
 
 function DashboardEmpresa() {
   const [busca, setBusca] = useState('')
+  const [menuAberto, setMenuAberto] = useState(false)
   const navigate = useNavigate()
 
   const projetosFiltrados = projetos.filter(p =>
@@ -39,9 +41,16 @@ function DashboardEmpresa() {
 
   return (
     <main className="main-container">
+      <Sidebar 
+  menuAberto={menuAberto} 
+  setMenuAberto={setMenuAberto} 
+  nomeUsuario="Nome Usuário" 
+  tipoUsuario="Empresa" 
+/>
+
       {/* Navbar */}
       <header className="navbar">
-        <div className="logo-topo" >
+       <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">

@@ -290,11 +290,13 @@ html, body {
   width: 350px;
   height: 100vh;
   background-color: #6B0F2B;
-  z-index: 1000;
+  z-index: 999;
   transition: left 0.3s ease;
-  display: flex;
   flex-direction: column;
+
 }
+
+
 
 .menu-lateral.aberto {
   left: 0;
