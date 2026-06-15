@@ -12,8 +12,8 @@ import CategoriaTurismo from './pages/universitario/categoria/CategoriaTurismo'
 import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao'
 import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
 import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgropecuaria'
-import AdicionarProjeto from "./pages/composto/AdicionarProblema";
-import VisualizarProjeto from "./pages/composto/VisualizarProjeto";
+import AdicionarProblema from './pages/composto/AdicionarProblema';
+import VisualizarProjeto from './pages/composto/VisualizarProjeto';
 import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
 import DashboardSociedade from './pages/composto/DashboardSociedade';
 import LandingPage from './pages/landing-page'
@@ -41,8 +41,9 @@ function App() {
       <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
       <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
       <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria/>} />
-      <Route path="/composto/adicionarprojeto" element={<AdicionarProjeto />} />
+      <Route path="/composto/adicionarprojeto" element={<AdicionarProblema />} />
       <Route path="/visaogeralprojeto" element={<VisaoGeralProjeto />} />
+      <Route path="/visualizarprojeto" element={<VisualizarProjeto />} />
       <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
       <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
       <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />
