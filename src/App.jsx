@@ -43,6 +43,7 @@ function App() {
       <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria/>} />
       <Route path="/composto/adicionarprojeto" element={<AdicionarProjeto />} />
       <Route path="/visaogeralprojeto" element={<VisaoGeralProjeto />} />
+      <Route path="/visualizarprojeto" element={<VisualizarProjeto />} />
       <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
       <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
       <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />
