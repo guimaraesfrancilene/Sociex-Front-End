@@ -13,6 +13,7 @@ import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao
 import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
 import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgropecuaria'
 import AdicionarProjeto from "./pages/composto/AdicionarProblema";
+import VisualizarProjeto from "./pages/composto/VisualizarProjeto";
 import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
 import DashboardSociedade from './pages/composto/DashboardSociedade';
 import LandingPage from './pages/landing-page'
