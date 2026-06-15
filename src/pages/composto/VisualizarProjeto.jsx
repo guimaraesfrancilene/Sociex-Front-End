@@ -1,5 +1,5 @@
 import React from 'react';
-import './DemandPage.css';
+import './VisualizarProjeto.css';
 
 // Ícones simulados em SVG para manter o projeto independente de pacotes externos
 const HealthIcon = () => (
