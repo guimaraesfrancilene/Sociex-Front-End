@@ -210,10 +210,10 @@
   font-weight: bold;
 }
 
-/* Navegação do Rodapé (Botões Próximo/Voltar) */
+
 .quest-nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 16px;
   margin-top: 40px;
 }
