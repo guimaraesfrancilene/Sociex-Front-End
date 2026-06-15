@@ -17,5 +17,6 @@
 .cadastro-card {
   width: 500px;
   max-height: 80vh;
-  overflow-y: auto;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
