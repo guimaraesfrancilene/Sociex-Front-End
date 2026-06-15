@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import './QuestionarioDiagnostico.css';
-// Importa a imagem da abelha para a tela final
+import React, { useState } from 'react';
+import './AdicionarProblema.css'; 
 import logoAbelha from './logoabelha.jpg'; 
-=======
-import './AdicionarProblema.css';
->>>>>>> 3083aa28667ee4010376b7027499d3327fb53efa
 
 const CATEGORIAS = [
   { value: 'cultura_turismo', label: 'Cultura e Turismo' },
