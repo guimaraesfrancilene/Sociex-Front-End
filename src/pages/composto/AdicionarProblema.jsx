@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './QuestionarioDiagnostico.css';
+import './AdicionarProblema.css';
 
 const CATEGORIAS = [
   { value: 'cultura_turismo', label: 'Cultura e Turismo' },
