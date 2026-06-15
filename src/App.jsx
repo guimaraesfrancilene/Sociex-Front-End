@@ -18,6 +18,7 @@ import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
 import DashboardSociedade from './pages/composto/DashboardSociedade';
 import LandingPage from './pages/landing-page'
 import EditarPerfil from './pages/EditarPerfil'
+import MeusProjetos from './pages/composto/MeusProjetos';
 
 
 
@@ -47,6 +48,7 @@ function App() {
       <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
       <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
       <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />
+      <Route path="/composto/MeusProjetos" element={<MeusProjetos />} />
     </Routes>
   )
 }

@@ -61,7 +61,7 @@ export default function Sidebar({ menuAberto, setMenuAberto, nomeUsuario, tipoUs
         <div className="menu-divider" />
         
         <ul className="menu-itens">
-          <li onClick={() => { navigate('/universitario/projetos'); setMenuAberto(false); }}>
+          <li onClick={() => { navigate('/composto/MeusProjetos'); setMenuAberto(false); }}>
             <FiFileText /> Meus Projetos
           </li>
           <li onClick={() => { navigate(obterRotaPerfil()); setMenuAberto(false); }}>
