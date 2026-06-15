@@ -18,15 +18,33 @@ import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
 import DashboardSociedade from './pages/composto/DashboardSociedade';
 import LandingPage from './pages/landing-page'
 import EditarPerfil from './pages/EditarPerfil'
-
+import Footer from './components/Footer';
+import PublicLayout from './components/PublicLayout';
 
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} /> 
-     { /* <Route path="/" element={<Home />} /> */}
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/visaogeralprojeto" element={<VisaoGeralProjeto />} />
+        <Route path="/visualizarprojeto" element={<VisualizarProjeto />} />
+        
+        {/* As telas iniciais pós-login dos perfis ganham o rodapé aqui: */}
+        <Route path="/universitario/dashboard" element={<Dashboard />} />
+        <Route path="/composto/dashboardempresa" element={<DashboardEmpresa />} />
+        <Route path="/composto/dashboardsociedade" element={<DashboardSociedade />} />
+        <Route path="/universitario/categoria/turismo" element={<CategoriaTurismo />} />
+        <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
+        <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
+        <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria />} />
+        
+        <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
+        <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
+        <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />
+      </Route>
+
       <Route path="/home" element={<Home />} />
       <Route path="/login/universitario" element={<LoginUniversitario />} />
       <Route path="/login/empresa" element={<LoginEmpresa />} />
