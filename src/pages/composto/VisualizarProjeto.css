@@ -1,0 +1,242 @@
+/* Importação da fonte mais próxima do design original */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f4f7fc;
+  color: #333333;
+}
+
+.sociex-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HEADER / TOPBAR --- */
+.sociex-header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 22px;
+  color: #5a121e; /* Tom de vinho escuro */
+  letter-spacing: 0.5px;
+}
+
+.logo-icon {
+  display: flex;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-back-top {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-enter {
+  background-color: #5a121e;
+  color: #ffffff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-enter:hover {
+  background-color: #3f0b14;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.sociex-content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.link-back {
+  display: inline-block;
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.link-back:hover {
+  text-decoration: underline;
+}
+
+/* --- CARD DE DEMANDA --- */
+.demand-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.icon-health {
+  width: 36px;
+  height: 36px;
+}
+
+.card-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+}
+
+.status-badge {
+  background-color: #e6f9ed;
+  color: #137333;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.demand-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 15px;
+}
+
+.demand-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a5568;
+  max-width: 90%;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #edf2f7;
+  margin: 30px 0;
+}
+
+/* --- GRID DE INFORMAÇÕES --- */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 35px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #718096;
+}
+
+/* Caixa com borda azul para o Status/Fase */
+.status-phase-box {
+  background-color: #f7fafc;
+  border-left: 4px solid #3182ce;
+  padding: 15px;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2d3748;
+}
+
+.status-phase-box strong {
+  color: #2b6cb0;
+}
+
+/* Lista de Responsáveis */
+.responsibles-list {
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.responsibles-list .relator {
+  margin-bottom: 10px;
+}
+
+.responsibles-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.responsibles-list li {
+  color: #718096;
+}
+
+/* Responsividade Básica para telas menores/celulares */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .sociex-header {
+    padding: 15px 20px;
+  }
+  .demand-card {
+    padding: 20px;
+  }
+  .demand-title {
+    font-size: 24px;
+  }
+}
