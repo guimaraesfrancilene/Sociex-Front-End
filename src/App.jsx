@@ -41,7 +41,7 @@ function App() {
       <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
       <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
       <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria/>} />
-      <Route path="/composto/adicionarprojeto" element={<AdicionarProjeto />} />
+      <Route path="/composto/adicionarprojeto" element={<AdicionarProblema />} />
       <Route path="/visaogeralprojeto" element={<VisaoGeralProjeto />} />
       <Route path="/visualizarprojeto" element={<VisualizarProjeto />} />
       <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
