@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FiUser, FiSave, FiX } from 'react-icons/fi'
 import Sidebar from '../components/Sidebar'
@@ -8,22 +8,30 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
   const navigate = useNavigate()
   const [menuAberto, setMenuAberto] = useState(false)
 
-  // Dados padrão ajustados para a Sociedade e outros perfis
+  // Altera o fundo da tela inteira (body) para o bege #fdf2ce ao entrar na página
+  useEffect(() => {
+    const corOriginal = document.body.style.backgroundColor
+    document.body.style.backgroundColor = '#fdf2ce' 
+    document.body.style.background = '#fdf2ce'
+    
+    return () => {
+      document.body.style.backgroundColor = corOriginal
+    }
+  }, [])
+
   const dadosPadrao = {
     nomeSocial: 'Lucas Alencar',
     email: 'contato@sociex.com',
     telefone: '(11) 99999-9999',
-    // Campos de Estudante
+    instituicao: 'Universidade de São Paulo', 
+    cidade: 'São Paulo',                     
     curso: 'Engenharia de Software', 
     matricula: '202610942', 
     periodo: '5º Período',
-    // Campos da Sociedade (Líder comunitário, ONG ou Cidadão)
-    tipoInstituicao: 'Líder Comunitário', // ONG, Associação, Cidadão
+    tipoInstituicao: 'Líder Comunitário', 
     comunidadeRegiao: 'Bairro Central / Zona Norte',
-    // Campos de Empresa
     cnpj: '00.000.000/0001-00',
     ramo: 'Tecnologia',
-    // Gerais
     bio: 'Desejo conectar os problemas da nossa comunidade com soluções universitárias.',
     linkedin: '',
     github: ''
@@ -38,7 +46,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert(`Perfil de ${tipoUsuario} atualizado com sucesso!`)
+    alert(`Perfil de ${tipoUsuario} updated com sucesso!`)
     navigate(-1)
   }
 
@@ -51,9 +59,18 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
         tipoUsuario={tipoUsuario} 
       />
 
-      <main className="main-container">
+      {/* Container principal com o novo fundo bege #fdf2ce */}
+      <main style={{ 
+        backgroundColor: '#fdf2ce', 
+        background: '#fdf2ce', 
+        minHeight: '100vh', 
+        width: '100%', 
+        display: 'flex', 
+        flexDirection: 'column' 
+      }}>
         
-        <header className="navbar">
+        {/* Navbar acompanhando o fundo #fdf2ce */}
+        <header className="navbar" style={{ backgroundColor: '#fdf2ce' }}>
           <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
             <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
           </div>
@@ -62,11 +79,23 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
           </nav>
         </header>
 
-        <section className="projects-box-container" style={{ marginTop: '30px' }}>
-          <div className="projects-container-inner" style={{ padding: '30px' }}>
+        {/* Seção centralizada com fundo #fdf2ce */}
+        <section style={{ marginTop: '30px', backgroundColor: '#fdf2ce', width: '100%', paddingBottom: '40px' }}>
+          
+          {/* Card central permanece branco com a bordinha cinza fina */}
+          <div style={{ 
+            padding: '30px', 
+            maxWidth: '600px', 
+            margin: '0 auto', 
+            backgroundColor: '#ffffff', 
+            border: '1px solid #e0e0e0', 
+            borderRadius: '12px',       
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' 
+          }}>
             
-            <div className="projects-header" style={{ marginBottom: '30px', borderBottom: '1px solid #ddd', paddingBottom: '15px' }}>
-              <h2>EDITAR PERFIL ({tipoUsuario.toUpperCase()})</h2>
+            {/* Título limpo */}
+            <div style={{ marginBottom: '30px', borderBottom: '1px solid #ddd', paddingBottom: '15px' }}>
+              <h2 style={{ margin: 0, color: '#333' }}>EDITAR PERFIL</h2>
             </div>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -84,14 +113,41 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
               {/* Grid de Campos */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 
+                {/* Campo de Nome Dinâmico */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Nome Completo / Representante</label>
-                  <input type="text" name="nomeSocial" value={perfil.nomeSocial} onChange={handleChange} required style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
+                  <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>
+                    {tipoUsuario === 'Empresa' ? 'Nome da Empresa / Representante' : 'Nome Completo / Representante'}
+                  </label>
+                  <input 
+                    type="text" 
+                    name="nomeSocial" 
+                    value={perfil.nomeSocial} 
+                    onChange={handleChange} 
+                    required 
+                    placeholder={tipoUsuario === 'Empresa' ? 'Ex: Minha Empresa LTDA / João Silva' : 'Ex: Lucas Alencar'}
+                    style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} 
+                  />
                 </div>
 
+                {/* Campo de e-mail dinâmico */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>E-mail de Contato</label>
-                  <input type="email" name="email" value={perfil.email} onChange={handleChange} required style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
+                  <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>
+                    {tipoUsuario === 'Estudante' && 'E-mail Institucional'}
+                    {tipoUsuario === 'Empresa' && 'E-mail Corporativo'}
+                    {tipoUsuario !== 'Estudante' && tipoUsuario !== 'Empresa' && 'E-mail de Contato'}
+                  </label>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    value={perfil.email} 
+                    onChange={handleChange} 
+                    required 
+                    placeholder={
+                      tipoUsuario === 'Estudante' ? 'seu.nome@institucional.com' : 
+                      tipoUsuario === 'Empresa' ? 'contato@empresa.com' : 'contato@exemplo.com'
+                    }
+                    style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} 
+                  />
                 </div>
 
                 {/* 🎓 CAMPOS EXCLUSIVOS: ESTUDANTE */}
@@ -104,6 +160,14 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                       <label style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#777' }}>Curso</label>
                       <input type="text" value={perfil.curso} disabled style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#e9ecef', color: '#6c757d', cursor: 'not-allowed', border: '1px solid #ddd' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                      <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Instituição de Ensino</label>
+                      <input type="text" name="instituicao" value={perfil.instituicao} onChange={handleChange} required placeholder="Ex: USP, UNICAMP, etc." style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                      <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Cidade</label>
+                      <input type="text" name="cidade" value={perfil.cidade} onChange={handleChange} required placeholder="Ex: São Paulo" style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} />
                     </div>
                   </>
                 )}
@@ -122,7 +186,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                       <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Comunidade / Região Atendida</label>
-                      <input type="text" name="comunidadeRegiao" value={perfil.comunidadeRegiao} onChange={handleChange} placeholder="Ex: Zona Sul, Ocupação X, etc." style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
+                      <input type="text" name="comunidadeRegiao" value={perfil.comunidadeRegiao} onChange={handleChange} placeholder="Ex: Zona Sul, Ocupação X, etc." style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} />
                     </div>
                   </>
                 )}
@@ -136,7 +200,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                       <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Ramo de Atuação</label>
-                      <input type="text" name="ramo" value={perfil.ramo} onChange={handleChange} style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
+                      <input type="text" name="ramo" value={perfil.ramo} onChange={handleChange} style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} />
                     </div>
                   </>
                 )}
@@ -144,17 +208,17 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
                 {/* Descrição e Redes */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', gridColumn: '1 / span 2' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Sobre você / Descrição da sua causa</label>
-                  <textarea name="bio" value={perfil.bio} onChange={handleChange} rows="3" style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', resize: 'none' }} />
+                  <textarea name="bio" value={perfil.bio} onChange={handleChange} rows="3" style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', resize: 'none', backgroundColor: '#fff' }} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Telefone / WhatsApp</label>
-                  <input type="text" name="telefone" value={perfil.telefone} onChange={handleChange} style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
+                  <input type="text" name="telefone" value={perfil.telefone} onChange={handleChange} style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                   <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Rede Social ou Site (Opcional)</label>
-                  <input type="url" name="linkedin" value={perfil.linkedin} onChange={handleChange} placeholder="https://instagram.com/..." style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
+                  <input type="url" name="linkedin" value={perfil.linkedin} onChange={handleChange} placeholder="https://instagram.com/..." style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #ccc', backgroundColor: '#fff' }} />
                 </div>
 
               </div>
