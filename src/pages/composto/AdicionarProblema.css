@@ -1,7 +1,7 @@
 /* Escopo Global / Reset de Layout da Página */
 .quest-page {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fcf6dd; /* Fundo bege limpo idêntico à imagem */
+  background-color: #fcf6dd; /* Fundo bege limpo */
   min-height: 100vh;
   margin: 0;
   padding: 0 0 50px 0;
@@ -11,7 +11,7 @@
   box-sizing: border-box;
 }
 
-/* Faixa Superior de Progresso (Igual à imagem enviada) */
+/* Faixa Superior de Progresso */
 .quest-top-bar {
   background-color: #3b0612; /* Vermelho vinho bem escuro */
   color: #f5dfb8;            /* Letras amarelo claro */
@@ -173,7 +173,7 @@
   font-weight: 500;
 }
 
-/* Tags de Palavras-Chave (Botões arredondados da imagem) */
+/* Tags de Palavras-Chave */
 .quest-tag-group {
   display: flex;
   flex-wrap: wrap;
@@ -250,23 +250,4 @@
 
 .quest-btn--ghost:hover {
   background-color: rgba(97, 16, 37, 0.05);
-}
-
-/* Centralização e Ajuste Responsivo da Imagem da Abelha (Sucesso) */
-.quest-success-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 850px;
-  margin: auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.quest-success-img {
-  width: 100%;
-  height: auto;
-  max-width: 750px; 
-  border-radius: 8px;
 }

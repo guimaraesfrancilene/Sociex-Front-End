@@ -1,18 +1,12 @@
-
 import React, { useState } from 'react';
-import './AdicionarProblema.css'; 
-import logoAbelha from './logoabelha.jpg'; 
+import './AdicionarProblema.css';
 
 const CATEGORIAS = [
   { value: 'cultura_turismo', label: 'Cultura e Turismo' },
   { value: 'educacao', label: 'Educação' },
   { value: 'saude', label: 'Saúde' },
   { value: 'agropecuaria', label: 'Agropecuária' },
-];
-
-const PALAVRAS_CHAVE = [
-  'Tecnologia', 'Inovação', 'Sustentabilidade', 'Gestão', 
-  'Educação', 'Saúde', 'Social', 'Digital', 'Pesquisa', 'Meio Ambiente'
+  { value: 'outro', label: 'Outro' },
 ];
 
 const STEPS = [
@@ -37,13 +31,10 @@ const STEPS = [
 const INITIAL_DATA = {
   categoria: '',
   outraCategoria: '',
-  tituloDesafio: '',
-  palavrasChave: [],
   problemaPrincipal: '',
   envolvidos: '',
   medidaTentada: '',
   acoesTentadas: '',
-  recursosNecessarios: '',
   comentarioAdicional: '',
   projetoPublico: '',
 };
@@ -64,7 +55,7 @@ function RadioOption({ name, value, label, checked, onChange }) {
   );
 }
 
-export default function QuestionarioDiagnostico() {
+export default function AdicionarProblema() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState(INITIAL_DATA);
   const [error, setError] = useState('');
@@ -75,27 +66,19 @@ export default function QuestionarioDiagnostico() {
     setError('');
   };
 
-  const togglePalavraChave = (palavra) => {
-    setData((prev) => {
-      const listaAtual = prev.palavrasChave;
-      const novaLista = listaAtual.includes(palavra)
-        ? listaAtual.filter((p) => p !== palabra)
-        : [...listaAtual, palabra];
-      return { ...prev, palavrasChave: novaLista };
-    });
-  };
-
   const validar = () => {
     if (step === 0) {
-      if (!data.categoria && !data.outraCategoria.trim()) {
-        return 'Selecione a categoria do seu problema ou especifique uma outra.';
+      if (!data.categoria) {
+        return 'Por favor, selecione uma categoria.';
       }
-      if (!data.tituloDesafio.trim()) {
-        return 'Por favor, insira o título do seu desafio.';
+      if (data.categoria === 'outro' && !data.outraCategoria.trim()) {
+        return 'Por favor, especifique a outra categoria.';
       }
     }
     if (step === 1) {
-      if (!data.problemaPrincipal.trim()) return 'Descreva o principal problema.';
+      if (!data.problemaPrincipal.trim()) {
+        return 'Por favor, descreva o principal problema.';
+      }
     }
     return '';
   };
@@ -126,16 +109,14 @@ export default function QuestionarioDiagnostico() {
     console.log('Respostas enviadas:', data);
   };
 
-  // TELA DE SUCESSO EXIBINDO A SUA IMAGEM
   if (enviado) {
     return (
       <div className="quest-page">
-        <div className="quest-success-container">
-          <img 
-            src={logoAbelha} 
-            alt="Projeto Enviado" 
-            className="quest-success-img" 
-          />
+        <div className="quest-card" style={{ textAlign: 'center', marginTop: '80px' }}>
+          <h1 className="quest-title" style={{ color: '#611025' }}>PROJETO ENVIADO!</h1>
+          <p className="quest-subtitle" style={{ color: '#2b2b2b', marginTop: '20px' }}>
+            Obrigado por enviar o seu projeto. Temos certeza de que em breve ele será resolvido.
+          </p>
         </div>
       </div>
     );
@@ -145,7 +126,6 @@ export default function QuestionarioDiagnostico() {
 
   return (
     <div className="quest-page">
-      {/* Barra vermelha superior igual à imagem */}
       <div className="quest-top-bar">
         ETAPA {step + 1} DE {STEPS.length}
       </div>
@@ -157,6 +137,8 @@ export default function QuestionarioDiagnostico() {
         </div>
 
         <form className="quest-body" onSubmit={finalizar}>
+          
+          {/* ETAPA 1: PERGUNTAS 1 E 2 */}
           {step === 0 && (
             <>
               <div className="quest-question">
@@ -179,59 +161,28 @@ export default function QuestionarioDiagnostico() {
 
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">2.</span> Caso seu problema esteja em outra categoria, especifique aqui:
+                  <span className="quest-number">2.</span> Caso tenha marcado "Outro", especifique a categoria:
                 </p>
                 <input
                   type="text"
                   className="quest-input"
-                  placeholder="Descreva a categoria..."
+                  placeholder="Especifique a categoria aqui..."
                   value={data.outraCategoria}
                   onChange={(e) => set('outraCategoria', e.target.value)}
+                  disabled={data.categoria !== 'outro'}
                 />
-              </div>
-
-              <div className="quest-question">
-                <p className="quest-question-text">
-                  <span className="quest-number">3.</span> Qual o título do seu desafio?
-                </p>
-                <input
-                  type="text"
-                  className="quest-input"
-                  placeholder="Ex: Sistema de monitoramento de irrigação rural"
-                  value={data.tituloDesafio}
-                  onChange={(e) => set('tituloDesafio', e.target.value)}
-                />
-              </div>
-
-              <div className="quest-question">
-                <p className="quest-question-text">
-                  <span className="quest-number">4.</span> Selecione as palavras-chave que descrevem seu desafio:
-                </p>
-                <div className="quest-tag-group">
-                  {PALAVRAS_CHAVE.map((palavra) => {
-                    const selecionada = data.palavrasChave.includes(palavra);
-                    return (
-                      <button
-                        key={palavra}
-                        type="button"
-                        className={`quest-tag ${selecionada ? 'quest-tag--active' : ''}`}
-                        onClick={() => togglePalavraChave(palavra)}
-                      >
-                        {palavra}
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
             </>
           )}
 
+          {/* ETAPA 2: PERGUNTAS 3 E 4 */}
           {step === 1 && (
             <>
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">5.</span> Qual o principal problema que afeta o desempenho da sua empresa?
+                  <span className="quest-number">3.</span> Qual o principal problema que afeta o desempenho da sua empresa?
                 </p>
+                <p className="quest-help-text">Por favor, forneça detalhes sobre o impacto e a recorrência.</p>
                 <textarea
                   className="quest-input quest-textarea"
                   placeholder="Descreva o problema em detalhes..."
@@ -242,12 +193,13 @@ export default function QuestionarioDiagnostico() {
 
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">6.</span> Quem ou o que está envolvido na causa principal deste problema?
+                  <span className="quest-number">4.</span> Quem ou o que está envolvido na causa principal deste problema?
                 </p>
+                <p className="quest-help-text">(Ex: Pessoas, Processos, Tecnologia, Fornecedores).</p>
                 <input
                   type="text"
                   className="quest-input"
-                  placeholder="Ex: Pessoas, Processos, Tecnologia..."
+                  placeholder="Ex: Falta de treinamento da equipe, sistema legado..."
                   value={data.envolvidos}
                   onChange={(e) => set('envolvidos', e.target.value)}
                 />
@@ -255,31 +207,32 @@ export default function QuestionarioDiagnostico() {
             </>
           )}
 
+          {/* ETAPA 3: PERGUNTAS 5 E 6 */}
           {step === 2 && (
             <>
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">7.</span> Alguma medida já foi tentada para solucionar esse problema?
+                  <span className="quest-number">5.</span> Alguma medida já foi tentada para solucionar esse problema?
                 </p>
                 <div className="quest-radio-group quest-radio-group--inline">
                   <RadioOption
                     name="medidaTentada"
                     value="sim"
-                    label="Sim"
+                    label="Sim. (Descreva abaixo as ações tomadas):"
                     checked={data.medidaTentada === 'sim'}
                     onChange={(v) => set('medidaTentada', v)}
                   />
                   <RadioOption
                     name="medidaTentada"
                     value="nao"
-                    label="Não"
+                    label="Não."
                     checked={data.medidaTentada === 'nao'}
                     onChange={(v) => set('medidaTentada', v)}
                   />
                 </div>
                 <textarea
                   className="quest-input quest-textarea"
-                  placeholder="Descreva as ações que já foram tomadas anteriormente..."
+                  placeholder="Ações tomadas anteriormente..."
                   value={data.acoesTentadas}
                   onChange={(e) => set('acoesTentadas', e.target.value)}
                   disabled={data.medidaTentada !== 'sim'}
@@ -288,11 +241,12 @@ export default function QuestionarioDiagnostico() {
 
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">8.</span> Quais recursos você considera necessários para solucionar o problema?
+                  <span className="quest-number">6.</span> Quais recursos você considera necessários para solucionar o problema?
                 </p>
+                <p className="quest-help-text">(Ex: Financiamento, consultoria, treinamento, tecnologia, software...).</p>
                 <textarea
                   className="quest-input quest-textarea"
-                  placeholder="Ex: Financiamento, consultoria, software específico..."
+                  placeholder="Descreva os recursos necessários..."
                   value={data.recursosNecessarios}
                   onChange={(e) => set('recursosNecessarios', e.target.value)}
                 />
@@ -300,15 +254,16 @@ export default function QuestionarioDiagnostico() {
             </>
           )}
 
+          {/* ETAPA 4: PERGUNTAS 7 E 8 */}
           {step === 3 && (
             <>
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">9.</span> Há algum comentário adicional que deseja incluir?
+                  <span className="quest-number">7.</span> Há algum comentário adicional que deseja incluir?
                 </p>
                 <textarea
                   className="quest-input quest-textarea"
-                  placeholder="Escreva aqui quaisquer outras informações úteis..."
+                  placeholder="Informações adicionais..."
                   value={data.comentarioAdicional}
                   onChange={(e) => set('comentarioAdicional', e.target.value)}
                 />
@@ -316,7 +271,7 @@ export default function QuestionarioDiagnostico() {
 
               <div className="quest-question">
                 <p className="quest-question-text">
-                  <span className="quest-number">10.</span> Deseja tornar este projeto público para visualização de terceiros?
+                  <span className="quest-number">8.</span> Deseja tornar este projeto público para visualização de terceiros?
                 </p>
                 <div className="quest-radio-group quest-radio-group--inline">
                   <RadioOption
