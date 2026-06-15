@@ -1,136 +1,103 @@
-import React, { useState } from 'react';
-import './MeusProjetos.css';
+import React, { useState } from "react";
+import "./MeusProjetos.css";
 
-// Dados fictícios para simular os projetos aceitos pelos alunos
-const initialProjects = [
-  {
-    id: 1,
-    titulo: "Sistema de Controle de Estoque",
-    aluno: "Ana Silva",
-    curso: "Análise e Desenvolvimento de Sistemas",
-    status: "Em Andamento",
-    progresso: 65,
-    dataAceite: "12/05/2026"
-  },
-  {
-    id: 2,
-    titulo: "Aplicativo de Entrega Local",
-    aluno: "Carlos Eduardo",
-    curso: "Engenharia de Software",
-    status: "Concluído",
-    progresso: 100,
-    dataAceite: "01/04/2026"
-  },
-  {
-    id: 3,
-    titulo: "Plataforma de E-learning",
-    aluno: "Mariana Costa",
-    curso: "Ciência da Computação",
-    status: "Atrasado",
-    progresso: 30,
-    dataAceite: "20/04/2026"
-  },
-  {
-    id: 4,
-    titulo: "Site Institucional ONG",
-    aluno: "Lucas Oliveira",
-    curso: "Sistemas de Informação",
-    status: "Em Andamento",
-    progresso: 45,
-    dataAceite: "02/06/2026"
-  }
+const meusProjetos = [
+  { id: 1, titulo: "App de Agendamento UFPI", categoria: "Educação", status: "Em análise", data: "12Out/2025", progresso: 60 },
+  { id: 2, titulo: "Sistema de Irrigação", categoria: "Agropecuária", status: "Aprovado", data: "05Out/2025", progresso: 100 },
+  { id: 3, titulo: "Portal do Turista", categoria: "Turismo & Cultura", status: "Em andamento", data: "20Set/2025", progresso: 35 },
+  { id: 4, titulo: "Chatbot Saúde", categoria: "Saúde", status: "Reprovado", data: "10Set/2025", progresso: 0 },
 ];
 
 export default function MeusProjetos() {
-  const [projetos] = useState(initialProjects);
-  const [busca, setBusca] = useState('');
+  const [busca, setBusca] = useState("");
+  const [filtroStatus, setFiltroStatus] = useState("Todos");
 
-  // Filtra os projetos pelo título ou pelo nome do aluno
-  const projetosFiltrados = projetos.filter(proj => 
-    proj.titulo.toLowerCase().includes(busca.toLowerCase()) ||
-    proj.aluno.toLowerCase().includes(busca.toLowerCase())
-  );
+  const projetosFiltrados = meusProjetos.filter(p => {
+    const matchBusca = p.titulo.toLowerCase().includes(busca.toLowerCase());
+    const matchStatus = filtroStatus === "Todos" || p.status === filtroStatus;
+    return matchBusca && matchStatus;
+  });
+
+  const getStatusClass = (status) => {
+    if (status === "Aprovado") return "status-aprovado";
+    if (status === "Em andamento") return "status-andamento";
+    if (status === "Em análise") return "status-analise";
+    return "status-reprovado";
+  };
 
   return (
-    <div className="dashboard-container">
-      {/* Barra Lateral / Sidebar Opcional */}
-      <aside className="sidebar">
-        <div className="logo">DevFlow</div>
-        <nav className="menu">
-          <a href="#dashboard" className="active">Projetos Aceitos</a>
-          <a href="#config">Configurações</a>
-        </nav>
-      </aside>
-
-      {/* Conteúdo Principal */}
-      <main className="main-content">
-        <header className="main-header">
-          <div>
-            <h1>Visualização de Projetos</h1>
-            <p className="subtitle">Acompanhe os projetos que foram aceitos pelos alunos</p>
+    <div className="meus-container">
+      <div className="topbar">
+        <div className="header-top">
+          <div className="logo-title">
+            <div className="logo-icon">
+              {[...Array(9)].map((_, i) => <div key={i} />)}
+            </div>
+            <div>
+              <div className="titulo">Meus Projetos</div>
+              <div className="subtitulo">Gerencie e acompanhe suas submissões</div>
+            </div>
           </div>
-          <div className="user-profile">
-            <span className="user-name">Prof. Administrador</span>
-            <div className="avatar">PA</div>
-          </div>
-        </header>
-
-        {/* Barra de Pesquisa e Filtros */}
-        <div className="filter-bar">
-          <input 
-            type="text" 
-            placeholder="Buscar por projeto ou aluno..." 
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-            className="search-input"
-          />
-          <div className="stats-badge">
-            Total vinculados: <strong>{projetosFiltrados.length}</strong>
-          </div>
+          <nav className="nav">
+            <a href="#">Início</a>
+            <a href="#">Sobre nós</a>
+          </nav>
         </div>
 
-        {/* Grid de Cards de Projetos */}
-        <div className="projects-grid">
-          {projetosFiltrados.map((projeto) => (
-            <div key={projeto.id} className="project-card">
+        <div className="filtros">
+          <div className="busca">
+            <svg className="icon-lupa" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input 
+              type="text" 
+              placeholder="Buscar projeto por nome" 
+              value={busca}
+              onChange={e => setBusca(e.target.value)}
+            />
+          </div>
+          <select className="select-cat" value={filtroStatus} onChange={e => setFiltroStatus(e.target.value)}>
+            <option>Todos</option>
+            <option>Em análise</option>
+            <option>Em andamento</option>
+            <option>Aprovado</option>
+            <option>Reprovado</option>
+          </select>
+          <button className="btn-novo">+ Novo Projeto</button>
+        </div>
+      </div>
+
+      <div className="conteudo">
+        <div className="label-status">Lista de Projetos</div>
+        <div className="grid">
+          {projetosFiltrados.map(p => (
+            <div className="card" key={p.id}>
               <div className="card-header">
-                <span className={`status-badge ${projeto.status.toLowerCase().replace(" ", "-")}`}>
-                  {projeto.status}
-                </span>
-                <span className="date-badge">{projeto.dataAceite}</span>
+                <h3>{p.titulo}</h3>
+                <span className={`status-tag ${getStatusClass(p.status)}`}>{p.status}</span>
               </div>
+              <span className="tag">{p.categoria}</span>
+              <div className="data">Enviado em: {p.data}</div>
               
-              <h3 className="project-title">{projeto.titulo}</h3>
-              
-              <div className="student-info">
-                <p className="student-name"><strong>Aluno:</strong> {projeto.aluno}</p>
-                <p className="student-course">{projeto.curso}</p>
-              </div>
-
-              <div className="progress-container">
-                <div className="progress-text">
+              <div className="progresso">
+                <div className="progresso-label">
                   <span>Progresso</span>
-                  <span>{projeto.progresso}%</span>
+                  <span>{p.progresso}%</span>
                 </div>
-                <div className="progress-bar-bg">
-                  <div 
-                    className="progress-bar-fill" 
-                    style={{ width: `${projeto.progresso}%` }}
-                  ></div>
+                <div className="progresso-bar">
+                  <div className="progresso-fill" style={{ width: `${p.progresso}%` }}></div>
                 </div>
               </div>
 
-              <div className="card-footer">
-                <button className="btn-details">Ver Detalhes</button>
+              <div className="acoes">
+                <button className="btn-visualizar">Detalhes</button>
+                <button className="btn-editar">Editar</button>
               </div>
             </div>
           ))}
-
-          {projetosFiltrados.length === 0 && (
-            <p className="no-results">Nenhum projeto ou aluno encontrado.</p>
-          )}
         </div>
-      </main>
+      </div>
     </div>
   );
 }
