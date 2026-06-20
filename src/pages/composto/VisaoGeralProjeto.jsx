@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './VisaoGeralProjeto.css';
 
-// Dados fictícios baseados na imagem para renderizar os cards dinamicamente
+
 const projetosIniciais = [
   { id: 1, nome: 'Gestão de Rebanho', categoria: 'Agropecuária', data: '25/Nov/2025' },
   { id: 2, nome: 'Fluxo de Pacientes', categoria: 'Saúde', data: '25/Nov/2025' },
@@ -19,10 +19,10 @@ export default function VisaoGeralProjetos() {
 
   return (
     <div className="projetos-page">
-      {/* BARRA DE NAVEGAÇÃO SUPERIOR */}
+      {}
       <header className="navbar-projetos">
         <div className="navbar-left">
-          {/* Ícone pequeno do favicón/logo hexagonal */}
+          {}
           <div className="mini-logo-hex"></div>
           <div className="brand-title-group">
             <h1 className="main-title">Visão Geral de Projetos</h1>
@@ -35,7 +35,7 @@ export default function VisaoGeralProjetos() {
         </nav>
       </header>
 
-      {/* BARRA DE FILTROS E PESQUISA */}
+      {}
       <section className="filter-bar">
         <div className="search-container">
           <span className="search-icon">🔍</span>
@@ -83,7 +83,7 @@ export default function VisaoGeralProjetos() {
 
       <span className="status-indicator-label">STATUS</span>
 
-      {/* GRADE DE CARDS DOS PROJETOS */}
+      {}
       <main className="projects-grid">
         {projetosIniciais.map((projeto) => (
           <div key={projeto.id} className="project-card">

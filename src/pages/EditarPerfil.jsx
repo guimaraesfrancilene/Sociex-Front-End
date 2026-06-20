@@ -46,7 +46,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert(`Perfil de ${tipoUsuario} updated com sucesso!`)
+    alert(`Perfil de ${tipoUsuario} atualizado com sucesso!`)
     navigate(-1)
   }
 
@@ -59,7 +59,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
         tipoUsuario={tipoUsuario} 
       />
 
-      {/* Container principal com o novo fundo bege #fdf2ce */}
+      {/* Container principal com o fundo bege #fdf2ce */}
       <main style={{ 
         backgroundColor: '#fdf2ce', 
         background: '#fdf2ce', 
@@ -82,10 +82,10 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
         {/* Seção centralizada com fundo #fdf2ce */}
         <section style={{ marginTop: '30px', backgroundColor: '#fdf2ce', width: '100%', paddingBottom: '40px' }}>
           
-          {/* Card central permanece branco com a bordinha cinza fina */}
+          {/* Card central um pouco mais largo (maxWidth alterado de 600px para 750px) */}
           <div style={{ 
             padding: '30px', 
-            maxWidth: '600px', 
+            maxWidth: '750px', 
             margin: '0 auto', 
             backgroundColor: '#ffffff', 
             border: '1px solid #e0e0e0', 
