@@ -76,7 +76,7 @@ html, body {
     text-align: center;
     padding: 60px 5%;
     background-color: #fff;
-    background-image: url(../../assets/fundo.png); 
+    background-image: url(../../assets/fundo.png) !important; 
     background-size: 450px; 
     background-repeat: repeat; 
     position: relative;
