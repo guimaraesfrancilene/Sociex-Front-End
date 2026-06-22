@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './landing-page.css'; // Certifique-se de que o arquivo CSS está na mesma pasta ou ajuste o caminho
 import imgLogo from '../assets/logo.png'
 import imgMenu from '../assets/menulateral.png'
 import { useNavigate } from 'react-router-dom'
 
 export default function SobreNos() {
-  const [isSidebarActive, setIsSidebarActive] = useState(false);
+  const [setIsSidebarActive] = useState(false);
   const openMenuBtnRef = useRef(null);
   const sidebarRef = useRef(null);
   const navigate = useNavigate()
@@ -32,7 +32,7 @@ export default function SobreNos() {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, []);
+  });
 
   return (
     <>

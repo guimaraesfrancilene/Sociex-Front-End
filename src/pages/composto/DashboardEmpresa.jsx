@@ -24,10 +24,10 @@ const projetos = [
 ]
 
 const categorias = [
-  { icone: imgTurismo, nome: 'Turismo e Cultura', path: '/universitario/categoria/turismo' },
-  { icone: imgEducacao, nome: 'Educação', path: '/universitario/categoria/educacao' },
-  { icone: imgSaude, nome: 'Saúde', path: '/universitario/categoria/saude' },
-  { icone: imgAgropecuaria, nome: 'Agropecuária', path: '/universitario/categoria/agropecuaria' },
+  { icone: imgTurismo, nome: 'Turismo e Cultura', path: '/empresa/categoria/turismo' },
+  { icone: imgEducacao, nome: 'Educação', path: '/empresa/categoria/educacao' },
+  { icone: imgSaude, nome: 'Saúde', path: '/empresa/categoria/saude' },
+  { icone: imgAgropecuaria, nome: 'Agropecuária', path: '/empresa/categoria/agropecuaria' },
 ]
 
 function DashboardEmpresa() {

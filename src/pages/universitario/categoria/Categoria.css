@@ -10,34 +10,34 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #fdf2ce;
 }
 .categoria-navbar a {
   text-decoration: none;
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;
 }
 
 .categoria-navbar a.active {
-  border-bottom: 2px solid #6B0F2B;
+  border-bottom: 2px solid #5e0d2f;
 }
 
 .categoria-navbar span {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;
-  border-bottom: 2px solid #6B0F2B;
+  border-bottom: 2px solid #5e0d2f;
 }
 
 .nav-links span {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;
-  border-bottom: 2px solid #6B0F2B;
+  border-bottom: 2px solid #5e0d2f;
   text-decoration: none;
 }
 
@@ -48,7 +48,7 @@
 /* Cabeçalho */
 .categoria-header {
   padding: 24px 32px;
-  border-bottom: 2px dashed #6B0F2B;
+  border-bottom: 2px dashed #5e0d2f;
 }
 
 .categoria-info {
@@ -59,7 +59,7 @@
 }
 
 .categoria-info h2 {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 8px;
@@ -74,7 +74,7 @@
 .btn-adicionar {
   background-color: #E8D9A0;
   border: 2px solid #E8A020;
-  color: #6B0F2B;
+  color: #5e0d2f;
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -103,10 +103,17 @@
   justify-content: center;
   gap: 20px;
   flex: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .stat-numero {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-size: 56px;
   font-weight: bold;
   line-height: 1;
@@ -129,7 +136,7 @@
 }
 
 .categoria-tabela th {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-size: 15px;
   font-weight: bold;
   padding: 16px;
@@ -153,7 +160,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #6B0F2B;
+  color: #5e0d2f;
   display: flex;
   align-items: center;
   justify-content: center;
