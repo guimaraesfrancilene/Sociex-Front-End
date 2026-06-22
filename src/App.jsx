@@ -8,7 +8,6 @@ import CadastroEmpresa from './pages/cadastro/CadastroEmpresa'
 import CadastroSociedade from './pages/cadastro/CadastroSociedade'
 import Dashboard from './pages/universitario/Dashboard'
 import DashboardEmpresa from './pages/composto/DashboardEmpresa'
-<<<<<<< HEAD
 import AdicionarProblema from './pages/composto/AdicionarProblema';
 import VisualizarProjeto from './pages/composto/VisualizarProjeto';
 import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
@@ -20,21 +19,6 @@ import VisualizarCategoria from './pages/universitario/categoria/VisualizarCateg
 
 
 
-=======
-import CategoriaTurismo from './pages/universitario/categoria/CategoriaTurismo'
-import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao'
-import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
-import CategoriaAgropecuaria from './pages/universitario/categoria/CategoriaAgropecuaria'
-import AdicionarProblema from './pages/composto/AdicionarProblema'
-import VisualizarProjeto from './pages/composto/VisualizarProjeto'
-import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto'
-import DashboardSociedade from './pages/composto/DashboardSociedade'
-import LandingPage from './pages/landing-page'
-import EditarPerfil from './pages/EditarPerfil'
-import Footer from './components/Footer'
-import PublicLayout from './components/PublicLayout'
-import MeusProjetos from './pages/composto/MeusProjetos'
->>>>>>> eba890ed54089565f72ff26856df9b637defe78d
 
 function App() {
   return (
@@ -62,7 +46,6 @@ function App() {
       <Route path="/login/universitario" element={<LoginUniversitario />} />
       <Route path="/login/empresa" element={<LoginEmpresa />} />
       <Route path="/login/sociedade" element={<LoginSociedade />} />
-<<<<<<< HEAD
       <Route path="/cadastro/universitario" element={<CadastroUniversitario />} /> 
       <Route path="/cadastro/empresa" element={<CadastroEmpresa />} /> 
       <Route path="/cadastro/sociedade" element={<CadastroSociedade />} /> 
@@ -79,12 +62,6 @@ function App() {
       <Route path="/universitario/categoria/:idCategoria" element={<VisualizarCategoria tipoUsuario="Estudante" />} />
       <Route path="/sociedade/categoria/:idCategoria" element={<VisualizarCategoria tipoUsuario="Sociedade" />} />
       <Route path="/empresa/categoria/:idCategoria" element={<VisualizarCategoria tipoUsuario="Empresa" />} />
-=======
-      <Route path="/cadastro/universitario" element={<CadastroUniversitario />} />
-      <Route path="/cadastro/empresa" element={<CadastroEmpresa />} />
-      <Route path="/cadastro/sociedade" element={<CadastroSociedade />} />
-      <Route path="/composto/adicionarprojeto" element={<AdicionarProblema />} />
->>>>>>> eba890ed54089565f72ff26856df9b637defe78d
     </Routes>
   )
 }
