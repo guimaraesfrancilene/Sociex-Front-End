@@ -16,10 +16,7 @@ import LandingPage from './pages/landing-page'
 import EditarPerfil from './pages/EditarPerfil'
 import MeusProjetos from './pages/composto/MeusProjetos';
 import VisualizarCategoria from './pages/universitario/categoria/VisualizarCategoria';
-<<<<<<< HEAD
-=======
 import PublicLayout from './components/PublicLayout'
->>>>>>> 39dd0592fe506c868c13844bc9edecfa3fd2cb7f
 
 
 
