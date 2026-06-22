@@ -1,111 +1,126 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Sidebar from '../../components/Sidebar';
-import './VisaoGeralProjeto.css';
+import { useState } from "react";
+import "./VisaoGeralProjeto.css";
 
-const projetosIniciais = [
-  { id: 1, nome: 'Gestão de Rebanho', categoria: 'Agropecuária', data: '25/Nov/2025' },
-  { id: 2, nome: 'Fluxo de Pacientes', categoria: 'Saúde', data: '25/Nov/2025' },
-  { id: 3, nome: 'Museu Virtual', categoria: 'Turismo & Cultura', data: '25/Nov/2025' },
-  { id: 4, nome: 'Culturafest', categoria: 'Turismo & Cultura', data: '25/Nov/2025' },
-  { id: 5, nome: 'Med Connect', categoria: 'Saúde', data: '25/Nov/2025' },
-  { id: 6, nome: 'Educa App', categoria: 'Educação', data: '25/Nov/2025' },
-  { id: 7, nome: 'Pecuária+', categoria: 'Agropecuária', data: '25/Nov/2025' },
-  { id: 8, nome: 'Smart Study', categoria: 'Educação', data: '25/Nov/2025' },
+const projetosData = [
+  { id: 1, titulo: "Gestão de Rebanho", categoria: "Agropecuária", data: "25Nov/2025" },
+  { id: 2, titulo: "Fluxo de Pacientes", categoria: "Saúde", data: "25Nov/2025" },
+  { id: 3, titulo: "Museu Virtual", categoria: "Turismo & Cultura", data: "25Nov/2025" },
+  { id: 4, titulo: "Culturafest", categoria: "Turismo & Cultura", data: "25Nov/2025" },
+  { id: 5, titulo: "Med Connect", categoria: "Saúde", data: "25Nov/2025" },
+  { id: 6, titulo: "Educa App", categoria: "Educação", data: "25Nov/2025" },
+  { id: 7, titulo: "Pecuária+", categoria: "Agropecuária", data: "25Nov/2025" },
+  { id: 8, titulo: "Smart Study", categoria: "Educação", data: "25Nov/2025" },
 ];
 
-export default function VisaoGeralProjetos() {
-  const [menuAberto, setMenuAberto] = useState(false);
-  const [busca, setBusca] = useState('');
-  const [filtroStatus, setFiltroStatus] = useState('Todos');
-  const navigate = useNavigate();
+const IconeLogo = () => (
+  <div className="logo-icon">
+    <div></div><div></div>
+    <div></div><div></div>
+    <div></div><div></div><div></div>
+  </div>
+);
 
-  const projetosFiltrados = projetosIniciais.filter((p) =>
-    p.nome.toLowerCase().includes(busca.toLowerCase())
+const IconeLupa = () => (
+  <svg fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="8" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+);
+
+const IconeCamera = () => (
+  <svg fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+    <circle cx="12" cy="13" r="4" />
+  </svg>
+);
+
+const IconeCheck = () => (
+  <svg fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+
+const IconeX = () => (
+  <svg fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+export default function VisaoGeralProjetos() {
+  const [filtroAtivo, setFiltroAtivo] = useState("Todos");
+  const [busca, setBusca] = useState("");
+
+  const projetosFiltrados = projetosData.filter(p => 
+    p.titulo.toLowerCase().includes(busca.toLowerCase())
   );
 
   return (
-    <div className="vgp-page">
-      <Sidebar
-        menuAberto={menuAberto}
-        setMenuAberto={setMenuAberto}
-        nomeUsuario="Nome do Usuário"
-        tipoUsuario="Estudante"
-      />
-
-      {/* HEADER */}
-      <header className="vgp-header">
-        <div className="vgp-header-left">
-          <button className="vgp-logo-btn" onClick={() => setMenuAberto(true)} aria-label="Abrir menu">
-            <img src="/src/assets/menulateral.png" alt="Menu" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
-          </button>
-          <div className="vgp-brand-group">
-            <h1 className="vgp-titulo">Visão Geral de Projetos</h1>
-            <span className="vgp-subtitulo">(10 pendentes)</span>
+    <div className="visao-container">
+      <div className="topbar">
+        <div className="header-top">
+          <div className="logo-title">
+            <IconeLogo />
+            <div>
+              <div className="titulo">Visão Geral de Projetos</div>
+              <div className="subtitulo">(10 pendentes)</div>
+            </div>
           </div>
-        </div>
-        <nav className="vgp-nav">
-          <span className="vgp-nav-link" onClick={() => navigate('/universitario/dashboard')}>Início</span>
-          <span className="vgp-nav-link vgp-nav-link--ativo" onClick={() => navigate('/sobre')}>Sobre nós</span>
-        </nav>
-      </header>
-
-      {/* FILTROS */}
-      <section className="vgp-filtros">
-        <div className="vgp-search-box">
-          <span className="vgp-search-icon">🔍</span>
-          <input
-            type="text"
-            placeholder="BUSCAR por nome."
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-            className="vgp-search-input"
-          />
-          <span className="vgp-camera-icon">📷</span>
+          <nav className="nav">
+            <a href="#">Início</a>
+            <a href="#">Sobre nós</a>
+          </nav>
         </div>
 
-        <div className="vgp-select-wrap">
-          <select className="vgp-select">
-            <option value="">CATEGORIA</option>
-            <option value="agro">Agropecuária</option>
-            <option value="saude">Saúde</option>
-            <option value="turismo">Turismo & Cultura</option>
-            <option value="educacao">Educação</option>
+        <div className="filtros">
+          <div className="busca">
+            <div className="icon-lupa"><IconeLupa /></div>
+            <input 
+              type="text" 
+              placeholder="BUSCAR por nome."
+              value={busca}
+              onChange={(e) => setBusca(e.target.value)}
+            />
+            <div className="icon-cam"><IconeCamera /></div>
+          </div>
+          
+          <select className="select-cat">
+            <option>CATEGORIA</option>
+            <option>Saúde</option>
+            <option>Educação</option>
+            <option>Agropecuária</option>
+            <option>Turismo & Cultura</option>
           </select>
-        </div>
 
-        <div className="vgp-status-btns">
-          {['Todos', 'Aceitos', 'Recusados'].map((s) => (
-            <button
-              key={s}
-              className={`vgp-btn-status ${filtroStatus === s ? 'vgp-btn-status--ativo' : 'vgp-btn-status--outline'}`}
-              onClick={() => setFiltroStatus(s)}
+          {["Todos", "Aceitos", "Recusados"].map(f => (
+            <button 
+              key={f}
+              className={`btn-filtro ${filtroAtivo === f ? "ativo" : ""}`}
+              onClick={() => setFiltroAtivo(f)}
             >
-              {s}
+              {f}
             </button>
           ))}
         </div>
-      </section>
+      </div>
 
-      <span className="vgp-secao-label">STATUS</span>
-
-      {/* GRID */}
-      <main className="vgp-grid">
-        {projetosFiltrados.map((projeto) => (
-          <div key={projeto.id} className="vgp-card">
-            <h3 className="vgp-card-titulo">{projeto.nome}</h3>
-            <span className="vgp-card-tag">{projeto.categoria}</span>
-            <span className="vgp-card-data">{projeto.data}</span>
-            <div className="vgp-card-footer">
-              <button className="vgp-btn-visualizar">VISUALIZAR</button>
-              <div className="vgp-action-icons">
-                <button className="vgp-icon-btn vgp-check-btn">✓</button>
-                <button className="vgp-icon-btn vgp-cross-btn">✕</button>
+      <div className="conteudo">
+        <div className="label-status">STATUS</div>
+        <div className="grid">
+          {projetosFiltrados.map(proj => (
+            <div className="card" key={proj.id}>
+              <h3>{proj.titulo}</h3>
+              <span className="tag">{proj.categoria}</span>
+              <div className="data">{proj.data}</div>
+              <div className="acoes">
+                <button className="btn-visualizar">VISUALIZAR</button>
+                <div className="icone-acao verde"><IconeCheck /></div>
+                <div className="icone-acao vermelho"><IconeX /></div>
               </div>
             </div>
-          </div>
-        ))}
-      </main>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

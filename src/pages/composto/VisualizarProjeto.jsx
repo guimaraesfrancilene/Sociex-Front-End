@@ -1,7 +1,9 @@
 import React from 'react';
-import './VisualizarProjeto.css'; 
-import logo from './assets/logo.png'; 
-import iconeSaude from './assets/saude.png';
+import './VisualizarProjeto.css';
+import logo from '../../assets/logo.png';
+import iconeSaude from '../../assets/saude.png';
+
+export default function VisualizarProjeto() {
 
 export default function VisualizarProjeto() {
   return (

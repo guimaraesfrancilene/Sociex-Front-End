@@ -8,6 +8,19 @@ import CadastroEmpresa from './pages/cadastro/CadastroEmpresa'
 import CadastroSociedade from './pages/cadastro/CadastroSociedade'
 import Dashboard from './pages/universitario/Dashboard'
 import DashboardEmpresa from './pages/composto/DashboardEmpresa'
+<<<<<<< HEAD
+import AdicionarProblema from './pages/composto/AdicionarProblema';
+import VisualizarProjeto from './pages/composto/VisualizarProjeto';
+import VisaoGeralProjeto from './pages/composto/VisaoGeralProjeto';
+import DashboardSociedade from './pages/composto/DashboardSociedade';
+import LandingPage from './pages/landing-page'
+import EditarPerfil from './pages/EditarPerfil'
+import MeusProjetos from './pages/composto/MeusProjetos';
+import VisualizarCategoria from './pages/universitario/categoria/VisualizarCategoria';
+
+
+
+=======
 import CategoriaTurismo from './pages/universitario/categoria/CategoriaTurismo'
 import CategoriaEducacao from './pages/universitario/categoria/CategoriaEducacao'
 import CategoriaSaude from './pages/universitario/categoria/CategoriaSaude'
@@ -21,6 +34,7 @@ import EditarPerfil from './pages/EditarPerfil'
 import Footer from './components/Footer'
 import PublicLayout from './components/PublicLayout'
 import MeusProjetos from './pages/composto/MeusProjetos'
+>>>>>>> eba890ed54089565f72ff26856df9b637defe78d
 
 function App() {
   return (
@@ -48,10 +62,29 @@ function App() {
       <Route path="/login/universitario" element={<LoginUniversitario />} />
       <Route path="/login/empresa" element={<LoginEmpresa />} />
       <Route path="/login/sociedade" element={<LoginSociedade />} />
+<<<<<<< HEAD
+      <Route path="/cadastro/universitario" element={<CadastroUniversitario />} /> 
+      <Route path="/cadastro/empresa" element={<CadastroEmpresa />} /> 
+      <Route path="/cadastro/sociedade" element={<CadastroSociedade />} /> 
+      <Route path="/universitario/dashboard" element={<Dashboard />} />
+      <Route path="/composto/dashboardempresa" element={<DashboardEmpresa />} />
+      <Route path="/composto/dashboardsociedade" element={<DashboardSociedade/>} />
+      <Route path="/composto/adicionarprojeto" element={<AdicionarProblema />} />
+      <Route path="/visaogeralprojeto" element={<VisaoGeralProjeto />} />
+      <Route path="/visualizarprojeto" element={<VisualizarProjeto />} />
+      <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
+      <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
+      <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />
+      <Route path="/composto/MeusProjetos" element={<MeusProjetos />} />
+      <Route path="/universitario/categoria/:idCategoria" element={<VisualizarCategoria tipoUsuario="Estudante" />} />
+      <Route path="/sociedade/categoria/:idCategoria" element={<VisualizarCategoria tipoUsuario="Sociedade" />} />
+      <Route path="/empresa/categoria/:idCategoria" element={<VisualizarCategoria tipoUsuario="Empresa" />} />
+=======
       <Route path="/cadastro/universitario" element={<CadastroUniversitario />} />
       <Route path="/cadastro/empresa" element={<CadastroEmpresa />} />
       <Route path="/cadastro/sociedade" element={<CadastroSociedade />} />
       <Route path="/composto/adicionarprojeto" element={<AdicionarProblema />} />
+>>>>>>> eba890ed54089565f72ff26856df9b637defe78d
     </Routes>
   )
 }
