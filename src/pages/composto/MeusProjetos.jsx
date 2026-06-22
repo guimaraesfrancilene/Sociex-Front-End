@@ -1,136 +1,141 @@
-import React, { useState } from 'react';
-import './MeusProjetos.css';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Sidebar from '../../components/Sidebar'
+import './MeusProjetos.css'
 
-// Dados fictícios para simular os projetos aceitos pelos alunos
-const initialProjects = [
+const projetosEstudante = [
   {
     id: 1,
-    titulo: "Sistema de Controle de Estoque",
-    aluno: "Ana Silva",
-    curso: "Análise e Desenvolvimento de Sistemas",
-    status: "Em Andamento",
-    progresso: 65,
-    dataAceite: "12/05/2026"
+    titulo: 'Sistema de Controle de Estoque',
+    empresa: 'Mercado Boa Vista',
+    categoria: 'Tecnologia',
+    status: 'Em desenvolvimento',
+    dataAceite: '12/05/2026',
+    prazo: '30/07/2026',
   },
   {
     id: 2,
-    titulo: "Aplicativo de Entrega Local",
-    aluno: "Carlos Eduardo",
-    curso: "Engenharia de Software",
-    status: "Concluído",
-    progresso: 100,
-    dataAceite: "01/04/2026"
+    titulo: 'Aplicativo de Entrega Local',
+    empresa: 'Entrega Rápida ME',
+    categoria: 'Tecnologia',
+    status: 'Concluído',
+    dataAceite: '01/04/2026',
+    prazo: '01/06/2026',
   },
   {
     id: 3,
-    titulo: "Plataforma de E-learning",
-    aluno: "Mariana Costa",
-    curso: "Ciência da Computação",
-    status: "Atrasado",
-    progresso: 30,
-    dataAceite: "20/04/2026"
+    titulo: 'Plataforma de E-learning',
+    empresa: 'Instituto Educar',
+    categoria: 'Educação',
+    status: 'Em análise',
+    dataAceite: '20/04/2026',
+    prazo: '20/08/2026',
   },
-  {
-    id: 4,
-    titulo: "Site Institucional ONG",
-    aluno: "Lucas Oliveira",
-    curso: "Sistemas de Informação",
-    status: "Em Andamento",
-    progresso: 45,
-    dataAceite: "02/06/2026"
-  }
-];
+]
+
+const statusClasses = {
+  'Em desenvolvimento': 'mp-status-dev',
+  'Concluído': 'mp-status-concluido',
+  'Em análise': 'mp-status-analise',
+}
 
 export default function MeusProjetos() {
-  const [projetos] = useState(initialProjects);
-  const [busca, setBusca] = useState('');
+  const [menuAberto, setMenuAberto] = useState(false)
+  const [busca, setBusca] = useState('')
+  const [filtroStatus, setFiltroStatus] = useState('Todos')
+  const navigate = useNavigate()
 
-  // Filtra os projetos pelo título ou pelo nome do aluno
-  const projetosFiltrados = projetos.filter(proj => 
-    proj.titulo.toLowerCase().includes(busca.toLowerCase()) ||
-    proj.aluno.toLowerCase().includes(busca.toLowerCase())
-  );
+  const projetosFiltrados = projetosEstudante.filter((p) => {
+    const buscaOk = p.titulo.toLowerCase().includes(busca.toLowerCase()) ||
+      p.empresa.toLowerCase().includes(busca.toLowerCase())
+    const statusOk = filtroStatus === 'Todos' || p.status === filtroStatus
+    return buscaOk && statusOk
+  })
 
   return (
-    <div className="dashboard-container">
-      {/* Barra Lateral / Sidebar Opcional */}
-      <aside className="sidebar">
-        <div className="logo">DevFlow</div>
-        <nav className="menu">
-          <a href="#dashboard" className="active">Projetos Aceitos</a>
-          <a href="#config">Configurações</a>
-        </nav>
-      </aside>
+    <div className="mp-page">
+      <Sidebar
+        menuAberto={menuAberto}
+        setMenuAberto={setMenuAberto}
+        nomeUsuario="Nome do Estudante"
+        tipoUsuario="Estudante"
+      />
 
-      {/* Conteúdo Principal */}
-      <main className="main-content">
-        <header className="main-header">
+      {/* HEADER */}
+      <header className="mp-header">
+        <div className="mp-header-left">
+          <button className="mp-logo-btn" onClick={() => setMenuAberto(true)} aria-label="Abrir menu">
+            <img src="/src/assets/menulateral.png" alt="Menu" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
+          </button>
           <div>
-            <h1>Visualização de Projetos</h1>
-            <p className="subtitle">Acompanhe os projetos que foram aceitos pelos alunos</p>
+            <h1 className="mp-titulo">Meus Projetos</h1>
+            <span className="mp-subtitulo">
+              {projetosFiltrados.length} projeto{projetosFiltrados.length !== 1 ? 's' : ''} encontrado{projetosFiltrados.length !== 1 ? 's' : ''}
+            </span>
           </div>
-          <div className="user-profile">
-            <span className="user-name">Prof. Administrador</span>
-            <div className="avatar">PA</div>
-          </div>
-        </header>
+        </div>
+        <nav className="mp-nav">
+          <span className="mp-nav-link" onClick={() => navigate('/universitario/dashboard')}>Início</span>
+          <span className="mp-nav-link" onClick={() => navigate('/sobre')}>Sobre nós</span>
+        </nav>
+      </header>
 
-        {/* Barra de Pesquisa e Filtros */}
-        <div className="filter-bar">
-          <input 
-            type="text" 
-            placeholder="Buscar por projeto ou aluno..." 
+      {/* FILTROS */}
+      <section className="mp-filtros">
+        <div className="mp-search-box">
+          <span className="mp-search-icon">🔍</span>
+          <input
+            type="text"
+            placeholder="Buscar por projeto ou empresa..."
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
-            className="search-input"
+            className="mp-search-input"
           />
-          <div className="stats-badge">
-            Total vinculados: <strong>{projetosFiltrados.length}</strong>
-          </div>
         </div>
 
-        {/* Grid de Cards de Projetos */}
-        <div className="projects-grid">
-          {projetosFiltrados.map((projeto) => (
-            <div key={projeto.id} className="project-card">
-              <div className="card-header">
-                <span className={`status-badge ${projeto.status.toLowerCase().replace(" ", "-")}`}>
+        <div className="mp-status-btns">
+          {['Todos', 'Em análise', 'Em desenvolvimento', 'Concluído'].map((s) => (
+            <button
+              key={s}
+              className={`mp-btn-status ${filtroStatus === s ? 'mp-btn-status--ativo' : 'mp-btn-status--outline'}`}
+              onClick={() => setFiltroStatus(s)}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <span className="mp-secao-label">MEUS PROJETOS</span>
+
+      {/* GRID */}
+      <main className="mp-grid">
+        {projetosFiltrados.length === 0 ? (
+          <p className="mp-vazio">Nenhum projeto encontrado.</p>
+        ) : (
+          projetosFiltrados.map((projeto) => (
+            <div key={projeto.id} className="mp-card">
+              <div className="mp-card-top">
+                <h3 className="mp-card-titulo">{projeto.titulo}</h3>
+                <span className={`mp-status-badge ${statusClasses[projeto.status]}`}>
                   {projeto.status}
                 </span>
-                <span className="date-badge">{projeto.dataAceite}</span>
               </div>
-              
-              <h3 className="project-title">{projeto.titulo}</h3>
-              
-              <div className="student-info">
-                <p className="student-name"><strong>Aluno:</strong> {projeto.aluno}</p>
-                <p className="student-course">{projeto.curso}</p>
+              <span className="mp-card-tag">{projeto.categoria}</span>
+              <div className="mp-card-info">
+                <p className="mp-card-empresa">{projeto.empresa}</p>
+                <p className="mp-card-data">Aceito em: {projeto.dataAceite}</p>
+                <p className="mp-card-data">Prazo: {projeto.prazo}</p>
               </div>
-
-              <div className="progress-container">
-                <div className="progress-text">
-                  <span>Progresso</span>
-                  <span>{projeto.progresso}%</span>
-                </div>
-                <div className="progress-bar-bg">
-                  <div 
-                    className="progress-bar-fill" 
-                    style={{ width: `${projeto.progresso}%` }}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="card-footer">
-                <button className="btn-details">Ver Detalhes</button>
+              <div className="mp-card-footer">
+                <button className="mp-btn-visualizar" onClick={() => navigate('/visualizarprojeto')}>
+                  VISUALIZAR
+                </button>
               </div>
             </div>
-          ))}
-
-          {projetosFiltrados.length === 0 && (
-            <p className="no-results">Nenhum projeto ou aluno encontrado.</p>
-          )}
-        </div>
+          ))
+        )}
       </main>
     </div>
-  );
+  )
 }

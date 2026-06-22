@@ -1,16 +1,15 @@
-/* Importação alternativa caso queira garantir a fonte direto no componente */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
 
-.projetos-page {
+.vgp-page {
   font-family: 'Baloo 2', sans-serif;
   background-color: #FFFFFF;
   min-height: 100vh;
-  padding: 0 0 40px 0;
+  padding-bottom: 40px;
   box-sizing: border-box;
 }
 
-/* NAVBAR */
-.navbar-projetos {
+/* HEADER */
+.vgp-header {
   background-color: #FAF1D6;
   padding: 15px 40px;
   display: flex;
@@ -19,97 +18,105 @@
   border-bottom: 2px solid #EAEAEA;
 }
 
-.navbar-left {
+.vgp-header-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Simulação do pequeno ícone de favicón da abelha/colmeia */
-.mini-logo-hex {
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  border: 2px solid #590623;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+.vgp-logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.brand-title-group {
+.vgp-brand-group {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
 }
 
-.main-title {
+.vgp-titulo {
   color: #000000;
   font-size: 1.6rem;
   font-weight: 700;
   margin: 0;
 }
 
-.subtitle-pending {
+.vgp-subtitulo {
   color: #555555;
   font-size: 1.1rem;
   font-weight: 500;
 }
 
-.navbar-right-links {
+.vgp-nav {
   display: flex;
   gap: 25px;
 }
 
-.nav-link {
+.vgp-nav-link {
   text-decoration: none;
   color: #590623;
   font-size: 1.2rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
-.nav-link.active-link {
-  color: #590623;
+.vgp-nav-link--ativo {
   border-bottom: 2px solid #590623;
 }
 
-/* BARRA DE FILTROS */
-.filter-bar {
+/* FILTROS */
+.vgp-filtros {
   background-color: #FAF1D6;
   padding: 15px 40px;
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
-.search-container {
+.vgp-search-box {
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
   border-radius: 6px;
   display: flex;
   align-items: center;
-  padding: 4px 12px;
+  padding: 6px 12px;
   flex: 1;
-  max-width: 400px;
+  min-width: 0;
 }
 
-.search-icon, .camera-icon {
+.vgp-search-icon,
+.vgp-camera-icon {
   color: #777777;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
-.search-input {
+.vgp-search-input {
   border: none;
   outline: none;
   width: 100%;
-  padding: 4px 8px;
+  padding: 2px 8px;
   font-size: 1rem;
   font-family: 'Baloo 2', sans-serif;
+  background: transparent;
 }
 
-.select-container select {
+.vgp-select-wrap {
+  flex-shrink: 0;
+}
+
+.vgp-select {
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
   border-radius: 6px;
-  padding: 6px 30px 6px 12px;
+  padding: 7px 16px;
   font-size: 0.95rem;
   color: #555555;
   font-family: 'Baloo 2', sans-serif;
@@ -117,65 +124,71 @@
   cursor: pointer;
 }
 
-.status-buttons {
+.vgp-status-btns {
   display: flex;
-  gap: 15px;
-  margin-left: auto;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.btn-status {
-  background-color: #590623;
-  color: #FFFFFF;
+.vgp-btn-status {
   border: 1px solid #590623;
-  padding: 4px 24px;
+  padding: 5px 20px;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   font-family: 'Baloo 2', sans-serif;
+  white-space: nowrap;
 }
 
-.btn-status.btn-outline {
+.vgp-btn-status--ativo {
+  background-color: #590623;
+  color: #FFFFFF;
+}
+
+.vgp-btn-status--outline {
   background-color: #FFFFFF;
   color: #590623;
 }
 
-/* Rótulo de Status */
-.status-indicator-label {
+/* RÓTULO */
+.vgp-secao-label {
   display: block;
   color: #590623;
   font-weight: 700;
   font-size: 1.1rem;
   margin: 25px 40px 15px 40px;
+  font-family: 'Baloo 2', sans-serif;
 }
 
-/* GRADE DE PROJETOS */
-.projects-grid {
+/* GRID */
+.vgp-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 25px;
   padding: 0 40px;
 }
 
-/* CARD DE PROJETO */
-.project-card {
+/* CARD */
+.vgp-card {
   border: 2px solid #590623;
   border-radius: 8px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
+  font-family: 'Baloo 2', sans-serif;
 }
 
-.project-card-title {
-  font-size: 1.3rem;
+.vgp-card-titulo {
+  font-size: 1.2rem;
   font-weight: 700;
   color: #000000;
   margin-bottom: 12px;
   line-height: 1.2;
 }
 
-.project-tag {
+.vgp-card-tag {
   background-color: #590623;
   color: #FFFFFF;
   align-self: flex-start;
@@ -186,22 +199,21 @@
   margin-bottom: 10px;
 }
 
-.project-date {
+.vgp-card-data {
   color: #888888;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
-/* RODAPÉ DO CARD */
-.project-card-footer {
+.vgp-card-footer {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.btn-visualizar {
+.vgp-btn-visualizar {
   background-color: #FAF1D6;
   color: #590623;
   border: 1px solid #D27828;
@@ -213,57 +225,63 @@
   font-family: 'Baloo 2', sans-serif;
 }
 
-.action-icons {
+.vgp-action-icons {
   display: flex;
   gap: 8px;
 }
 
-.icon-btn {
-  width: 24px;
-  height: 24px;
+.vgp-icon-btn {
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
+  background-color: transparent;
+  font-family: 'Baloo 2', sans-serif;
 }
 
-.check-btn {
+.vgp-check-btn {
   border-color: #62A470;
   color: #62A470;
-  background-color: transparent;
 }
 
-.cross-btn {
+.vgp-cross-btn {
   border-color: #C13B3B;
   color: #C13B3B;
-  background-color: transparent;
 }
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
-  .navbar-projetos {
+  .vgp-header {
     flex-direction: column;
     gap: 15px;
     align-items: flex-start;
     padding: 15px 20px;
   }
-  .filter-bar {
+
+  .vgp-filtros {
     padding: 15px 20px;
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
   }
-  .status-buttons {
-    margin-left: 0;
-    justify-content: space-between;
+
+  .vgp-search-box {
+    width: 100%;
   }
-  .projects-grid {
+
+  .vgp-status-btns {
+    flex-wrap: wrap;
+  }
+
+  .vgp-grid {
     padding: 0 20px;
   }
-  .status-indicator-label {
+
+  .vgp-secao-label {
     margin: 20px 20px 10px 20px;
   }
 }

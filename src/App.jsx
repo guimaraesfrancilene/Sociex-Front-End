@@ -40,6 +40,8 @@ function App() {
         <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
         <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />
         <Route path="/composto/meusprojetos" element={<MeusProjetos />} />
+        <Route path="/composto/adicionarprojeto" element={<AdicionarProblema />} />
+
       </Route>
 
       <Route path="/home" element={<Home />} />
