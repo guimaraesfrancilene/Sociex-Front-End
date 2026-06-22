@@ -1,4 +1,3 @@
-import React from 'react';
 import './VisualizarProjeto.css';
 import logo from '../../assets/logo.png';
 import iconeSaude from '../../assets/saude.png';
