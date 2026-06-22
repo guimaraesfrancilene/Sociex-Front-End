@@ -32,7 +32,7 @@ export default function SobreNos() {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  },);
+  });
 
   return (
     <>
