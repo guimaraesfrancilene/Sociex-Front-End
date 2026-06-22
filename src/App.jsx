@@ -16,6 +16,10 @@ import LandingPage from './pages/landing-page'
 import EditarPerfil from './pages/EditarPerfil'
 import MeusProjetos from './pages/composto/MeusProjetos';
 import VisualizarCategoria from './pages/universitario/categoria/VisualizarCategoria';
+<<<<<<< HEAD
+=======
+import PublicLayout from './components/PublicLayout'
+>>>>>>> 39dd0592fe506c868c13844bc9edecfa3fd2cb7f
 
 
 
@@ -30,10 +34,6 @@ function App() {
         <Route path="/universitario/dashboard" element={<Dashboard />} />
         <Route path="/composto/dashboardempresa" element={<DashboardEmpresa />} />
         <Route path="/composto/dashboardsociedade" element={<DashboardSociedade />} />
-        <Route path="/universitario/categoria/turismo" element={<CategoriaTurismo />} />
-        <Route path="/universitario/categoria/educacao" element={<CategoriaEducacao />} />
-        <Route path="/universitario/categoria/saude" element={<CategoriaSaude />} />
-        <Route path="/universitario/categoria/agropecuaria" element={<CategoriaAgropecuaria />} />
         <Route path="/universitario/perfil" element={<EditarPerfil tipoUsuario="Estudante" />} />
         <Route path="/sociedade/perfil" element={<EditarPerfil tipoUsuario="Sociedade" />} />
         <Route path="/empresa/perfil" element={<EditarPerfil tipoUsuario="Empresa" />} />

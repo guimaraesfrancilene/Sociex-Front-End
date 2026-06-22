@@ -1,7 +1,9 @@
 import React from 'react';
-import './VisualizarProjeto.css'; 
-import logo from './logo-vazada (1).png'; 
-import iconeSaude from './assets/saude.png'; // Importando a imagem da saúde do caminho indicado
+import './VisualizarProjeto.css';
+import logo from '../../assets/logo.png';
+import iconeSaude from '../../assets/saude.png';
+
+export default function VisualizarProjeto() {
 
 export default function VisualizarProjeto() {
   return (
@@ -92,4 +94,5 @@ export default function VisualizarProjeto() {
       </main>
     </div>
   );
+}
 }

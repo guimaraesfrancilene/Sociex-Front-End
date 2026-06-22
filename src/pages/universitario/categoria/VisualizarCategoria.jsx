@@ -122,7 +122,7 @@ function VisualizarCategoria({ tipoUsuario = 'Estudante' }) {
           
           {/* Renderização Condicional do Botão de Cadastro */}
           
-            <button className="btn-adicionar" onClick={() => navigate('/composto/adicionarproblema')}>
+            <button className="btn-adicionar" onClick={() => navigate('/composto/adicionarprojeto')}>
               + Adicionar projeto nessa categoria...
             </button>
         </section>
