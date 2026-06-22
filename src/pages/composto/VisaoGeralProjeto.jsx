@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React, { useState } from "react";
+=======
 import { useState } from "react";
+>>>>>>> 39dd0592fe506c868c13844bc9edecfa3fd2cb7f
 import "./VisaoGeralProjeto.css";
 import imgMenu from '../../assets/menulateral.png'
 import { useNavigate } from 'react-router-dom'
