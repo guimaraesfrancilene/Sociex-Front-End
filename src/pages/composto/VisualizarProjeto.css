@@ -1,242 +1,264 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
+:root {
+    --color-vinho: #6b1d2f;
+    --color-vinho-suave: #a24d5f;
+    --color-vinho-claro: #f4ecee;
+    --color-bege-bg: #eddcd2; 
+    --color-card-bg: #fffbf7; 
+    --color-branco: #ffffff;
+    --color-texto: #33181c;
+    --color-texto-suave: #6b5357;
 }
 
-body {
-  background-color: #f4f7fc;
-  color: #333333;
+.container-page {
+    background-color: var(--color-bege-bg);
+    color: var(--color-texto);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.sociex-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Barra de Navegação Superior (Vinho) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-vinho);
+    padding: 14px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* --- HEADER / TOPBAR --- */
-.sociex-header {
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  border-bottom: 1px solid #e2e8f0;
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-text {
-  font-weight: 800;
-  font-size: 22px;
-  color: #5a121e; /* Tom de vinho escuro */
-  letter-spacing: 0.5px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--color-branco);
+    letter-spacing: 0.5px;
 }
 
-.logo-icon {
-  display: flex;
-  gap: 2px;
-  font-size: 14px;
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.btn-back-text {
+    background: none;
+    border: none;
+    color: var(--color-branco);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s;
 }
 
-.btn-back-top {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 14px;
-  cursor: pointer;
-  font-weight: 500;
+.btn-back-text:hover {
+    opacity: 1;
 }
 
 .btn-enter {
-  background-color: #5a121e;
-  color: #ffffff;
-  border: none;
-  padding: 8px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.2s;
+    background-color: var(--color-card-bg);
+    color: var(--color-vinho);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .btn-enter:hover {
-  background-color: #3f0b14;
+    transform: scale(1.02);
+    background-color: var(--color-branco);
 }
 
-/* --- CONTEÚDO PRINCIPAL --- */
-.sociex-content {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 30px 20px;
+/* Container Principal */
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
 }
 
-.link-back {
-  display: inline-block;
-  color: #0070f3;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 25px;
+.link-back-list {
+    color: var(--color-vinho);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 24px;
 }
 
-.link-back:hover {
-  text-decoration: underline;
-}
-
-/* --- CARD DE DEMANDA --- */
-.demand-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+/* Card de Informações */
+.card {
+    background-color: var(--color-card-bg);
+    border-radius: 16px;
+    padding: 48px;
+    box-shadow: 0 6px 30px rgba(107, 29, 47, 0.06);
 }
 
 .card-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-.icon-health {
-  width: 36px;
-  height: 36px;
+/* Bloco que alinha a imagem ao lado das tags de texto */
+.category-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-.card-header-titles {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.health-icon-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
 }
 
-.category-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: #718096;
-  text-transform: uppercase;
+.badge-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.status-badge {
-  background-color: #e6f9ed;
-  color: #137333;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
+.category-tag {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+    font-weight: 600;
 }
 
-.demand-title {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 15px;
+.status-tag {
+    background-color: var(--color-vinho-claro);
+    color: var(--color-vinho);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(107, 29, 47, 0.1);
 }
 
-.demand-description {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #4a5568;
-  max-width: 90%;
+.main-title {
+    font-size: 2.4rem;
+    color: var(--color-vinho);
+    margin-bottom: 18px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.problem-container {
+    font-size: 1.1rem;
+    color: var(--color-texto-suave);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.problem-container strong {
+    color: var(--color-vinho);
 }
 
 .divider {
-  border: 0;
-  border-top: 1px solid #edf2f7;
-  margin: 30px 0;
+    border: 0;
+    border-top: 1px solid rgba(107, 29, 47, 0.1);
+    margin-bottom: 32px;
 }
 
-/* --- GRID DE INFORMAÇÕES --- */
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 50px;
-  row-gap: 35px;
+/* Grid de duas colunas */
+.grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.section-wrapper {
+    margin-bottom: 32px;
 }
 
 .section-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1a202c;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: var(--color-vinho);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
 }
 
-.section-text {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #718096;
+.section-description {
+    font-size: 1rem;
+    color: var(--color-texto-suave);
+    line-height: 1.5;
 }
 
-/* Caixa com borda azul para o Status/Fase */
-.status-phase-box {
-  background-color: #f7fafc;
-  border-left: 4px solid #3182ce;
-  padding: 15px;
-  border-radius: 0 8px 8px 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #2d3748;
-}
-
-.status-phase-box strong {
-  color: #2b6cb0;
+/* Caixa do Status de Andamento (Fase 2) */
+.phase-alert-box {
+    background-color: var(--color-vinho-claro);
+    border-left: 4px solid var(--color-vinho);
+    padding: 18px 20px;
+    border-radius: 0 10px 10px 0;
+    color: var(--color-vinho);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 12px;
 }
 
 /* Lista de Responsáveis */
-.responsibles-list {
-  font-size: 14px;
-  color: #4a5568;
+.team-relator {
+    font-size: 1rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 12px;
 }
 
-.responsibles-list .relator {
-  margin-bottom: 10px;
+.team-relator strong {
+    color: var(--color-vinho);
 }
 
-.responsibles-list ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.team-list {
+    list-style: none;
+    padding-left: 0;
 }
 
-.responsibles-list li {
-  color: #718096;
+.team-list li {
+    font-size: 1rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 18px;
 }
 
-/* Responsividade Básica para telas menores/celulares */
+.team-list li::before {
+    content: "•";
+    color: var(--color-vinho-suave);
+    font-weight: bold;
+    font-size: 1.3rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+/* Adaptação para Celulares */
 @media (max-width: 768px) {
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-  .sociex-header {
-    padding: 15px 20px;
-  }
-  .demand-card {
-    padding: 20px;
-  }
-  .demand-title {
-    font-size: 24px;
-  }
+    .grid-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .navbar {
+        padding: 12px 20px;
+    }
+    .card {
+        padding: 28px 20px;
+    }
 }
