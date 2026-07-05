@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { FiUser, FiFileText, FiLogOut, FiEdit, FiChevronLeft } from 'react-icons/fi'
+import './Sidebar.css'
 
 export default function Sidebar({ menuAberto, setMenuAberto, nomeUsuario, tipoUsuario }) {
   const navigate = useNavigate()

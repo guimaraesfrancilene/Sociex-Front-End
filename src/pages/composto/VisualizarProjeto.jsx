@@ -1,95 +1,94 @@
-import React from 'react';
-import './VisualizarProjeto.css'; 
-import logo from './logo-vazada (1).png'; 
-import iconeSaude from './assets/saude.png'; // Importando a imagem da saúde do caminho indicado
+import './VisualizarProjeto.css';
+import logo from '../../assets/logo.png';
+import iconeSaude from '../../assets/saude.png';
 
-export default function VisualizarProjeto() {
+const VisualizarProjeto = () => {
   return (
-    <div className="container-page">
-      {/* Navbar Superior */}
-      <header className="navbar">
-        <div className="logo-section">
-          <img src={logo} alt="Logo SOCIEX" className="logo-img" />
-          <span className="logo-text">SOCIEX</span>
+    <div className="telemedicina-page">
+      {/* Barra de Navegação Superior */}
+      <header className="sociex-header">
+        <div className="sociex-logo-container">
+          <img src={logo} alt="SOCIEX Logo" className="sociex-logo-img" />
         </div>
-        <div className="nav-actions">
-          <button className="btn-back-text">Voltar</button>
-          <button className="btn-enter">Entrar</button>
-        </div>
+        <a href="#voltar" className="header-link">Voltar Entrar</a>
       </header>
 
-      {/* Conteúdo Principal */}
-      <main className="main-content">
-        <a href="#back" className="link-back-list">
-          &larr; Voltar para a lista de demandas
+      {/* Conteúdo Central */}
+      <main className="sociex-main-container">
+        <a href="#lista" className="sociex-btn-back">
+          ← Voltar para a lista de demandas
         </a>
 
-        {/* Card Principal */}
-        <section className="card">
-          <div className="card-header">
-            {/* Nova estrutura: Imagem da saúde ao lado do texto */}
-            <div className="category-block">
-              <img src={iconeSaude} alt="Ícone Saúde" className="health-icon-img" />
-              <div className="badge-wrapper">
-                <span className="category-tag">Saúde</span>
-                <span className="status-tag">⚙️ Em Resolução</span>
-              </div>
-            </div>
+        <div className="sociex-card">
+          {/* Cabeçalho do Card (Tags) */}
+          <div className="sociex-card-header">
+            <span className="sociex-tag-category">
+              <img src={iconeSaude} alt="Ícone Saúde" className="sociex-icon-img" /> Saúde
+            </span>
+            <span className="sociex-tag-status">⚙️ Em Resolução</span>
           </div>
 
-          <h1 className="main-title">Iniciativa de Telemedicina Rural</h1>
-          
-          <p className="problem-container">
-            <strong>Problema:</strong> Comunidades isoladas no interior do Brasil sofrem com a falta de médicos especialistas e precisam se deslocar por horas para atendimento básico.
-          </p>
+          {/* Título Principal */}
+          <h1 className="sociex-card-title">Iniciativa de Telemedicina Rural</h1>
 
-          <hr className="divider" />
+          {/* Descrição do Problema */}
+          <div className="sociex-problem-section">
+            <p>
+              <strong>Problema:</strong> Comunidades isoladas no interior do Brasil sofrem com a falta de médicos especialistas e precisam se deslocar por horas para atendimento básico.
+            </p>
+          </div>
 
-          {/* Informações em Duas Colunas */}
-          <div className="grid-info">
+          <hr className="sociex-divider" />
+
+          {/* Grid de Duas Colunas (Lado a Lado) */}
+          <div className="sociex-card-grid">
             
-            {/* Coluna Esquerda */}
-            <div className="grid-column">
-              <div className="section-wrapper">
-                <h3 className="section-title">🎯 Objetivo Esperado da Solução</h3>
-                <p className="section-description">
+            {/* Coluna da Esquerda */}
+            <div className="sociex-grid-column">
+              <div className="sociex-info-block">
+                <h3>🎯 Objetivo Esperado da Solução</h3>
+                <p>
                   Desenvolver um sistema de triagem e consultas online estável que funcione mesmo com conexões de baixa qualidade.
                 </p>
               </div>
 
-              <div className="section-wrapper">
-                <h3 className="section-title">📈 Status do Andamento</h3>
-                <div className="phase-alert-box">
-                  <strong>Fase 2:</strong> Instalação de antenas de internet via satélite e triagem de demandas nas primeiras 5 vilas.
+              <div className="sociex-info-block">
+                <h3>📋 Status do Andamento</h3>
+                <div className="sociex-highlight-box">
+                  <p>
+                    <strong>Fase 2:</strong> Instalação de antenas de internet via satélite e triagem de demandas nas primeiras 5 vilas.
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Coluna Direita */}
-            <div className="grid-column">
-              <div className="section-wrapper">
-                <h3 className="section-title">👥 População Afetada / Público-Alvo</h3>
-                <p className="section-description">
+            {/* Coluna da Direita */}
+            <div className="sociex-grid-column">
+              <div className="sociex-info-block">
+                <h3>👥 População Afetada / Público-Alvo</h3>
+                <p>
                   Moradores de comunidades ribeirinhas e assentamentos rurais sem postos de atendimento médico fixo.
                 </p>
               </div>
 
-              <div className="section-wrapper">
-                <h3 className="section-title">💼 Responsáveis pelo Envio / Triagem</h3>
-                <div className="team-container">
-                  <p className="team-relator"><strong>Relator:</strong> Dra. Helena Souza (Infectologista)</p>
-                  <ul className="team-list">
-                    <li>Dra. Helena Souza</li>
-                    <li>Dr. Marcos Freire (Clínico Geral)</li>
-                    <li>Amanda Costa (Tecnologia/Infra)</li>
-                  </ul>
-                </div>
+              <div className="sociex-info-block">
+                <h3>💼 Responsáveis pelo Envio / Triagem</h3>
+                <p className="sociex-relator">
+                  <strong>Relator:</strong> Dra. Helena Souza (Infectologista)
+                </p>
+                <ul className="sociex-team-list">
+                  <li>Dra. Helena Souza</li>
+                  <li>Dr. Marcos Freire (Clínico Geral)</li>
+                  <li>Amanda Costa (Tecnologia/Infra)</li>
+                </ul>
               </div>
             </div>
 
-          </div>
-        </section>
+          </div> {/* Fim da Grid */}
+        </div>
       </main>
     </div>
   );
-}
+};
+
+export default VisualizarProjeto;

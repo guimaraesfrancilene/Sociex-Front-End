@@ -804,38 +804,8 @@ html, body {
     transform: scale(1.08);
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -320px; 
-    width: 300px;
-    height: 100vh;
-    background-color: var(--cor-texto-principal); 
-    color: #ffffff;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
-    transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    z-index: 10000; 
-    padding: 20px 0;
-    box-sizing: border-box;
-}
 
-.sidebar.active {
-    left: 0;
-}
 
-.close-menu {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 22px;
-    color: var(--cor-borda-container); 
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-menu:hover {
-    color: #fff;
-}
 
 .profile-section {
     text-align: center;

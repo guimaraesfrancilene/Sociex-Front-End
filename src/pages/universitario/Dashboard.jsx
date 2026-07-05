@@ -42,7 +42,7 @@ function Dashboard() {
  <> <Sidebar 
   menuAberto={menuAberto} 
   setMenuAberto={setMenuAberto} 
-  nomeUsuario="Lucas Alencar" 
+  nomeUsuario="Nome Usuário" 
   tipoUsuario="Estudante" 
 />
     <main className="main-container">
