@@ -1,0 +1,154 @@
+.menu-overlay {
+  backdrop-filter: blur(2px);
+}
+ 
+.menu-lateral {
+  font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.25);
+  padding: 28px 28px 40px;
+}
+ 
+/* ============ BOTÃO FECHAR ============ */
+.menu-fechar {
+  align-self: flex-start;
+  border: none;
+  color: #E8C874;
+  width: 90px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  cursor: pointer;
+  
+}
+ 
+.menu-fechar:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateX(-2px);
+}
+ 
+/* ============ PERFIL ============ */
+.menu-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+ 
+.menu-avatar {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #f2e6d8 !important;
+  margin-bottom: 18px;
+  transition: transform 0.25s ease;
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+  background: rgba(255, 255, 255, 0.12);
+}
+ 
+/* "Borda" dourada do hexágono, feita com uma camada de fundo levemente maior atrás */
+.menu-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  background: #E8C874;
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+}
+ 
+.menu-avatar:hover {
+  transform: scale(1.04) rotate(3deg);
+}
+ 
+.menu-perfil h3 {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+ 
+.menu-perfil p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+ 
+/* ============ DIVISOR ============ */
+.menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  margin: 0 0 12px;
+}
+ 
+/* ============ ITENS DO MENU ============ */
+.menu-itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.menu-itens li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  border-radius: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
+}
+ 
+.menu-itens li:last-child {
+  border-bottom: none;
+}
+ 
+.menu-itens li svg {
+  font-size: 19px;
+  color: #E8C874;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+ 
+.menu-itens li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  padding-left: 20px;
+  color: #fff;
+}
+ 
+.menu-itens li:hover svg {
+  transform: scale(1.1);
+}
+ 
+/* Item de "Desconectar" com leve destaque de alerta no hover */
+.menu-itens li:last-of-type:hover {
+  background: rgba(232, 90, 90, 0.12);
+}
+ 
+.menu-itens li:last-of-type:hover svg {
+  color: #f28b8b;
+}
+ 
+/* ============ RESPONSIVO ============ */
+@media (max-width: 400px) {
+  .menu-lateral {
+    width: 100vw !important;
+    left: 0 !important;
+    padding: 24px 22px 36px;
+  }
+}

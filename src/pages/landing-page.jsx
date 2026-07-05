@@ -45,7 +45,7 @@ export default function SobreNos() {
             ref={openMenuBtnRef}
             onClick={() => setIsSidebarActive(true)}
           >
-            <img src={imgMenu} alt="Abrir Menu" className="menu-icon-img" />
+            <img src={imgMenu} alt="Abrir Menu" style={{ height: '40px', pointerEvents: 'none' }} />
           </button>
           <nav className="nav-links">
             <a href="#!" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Início</a>
