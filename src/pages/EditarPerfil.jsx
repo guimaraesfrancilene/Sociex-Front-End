@@ -71,9 +71,6 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
         
         {/* Navbar acompanhando o fundo #fdf2ce */}
         <header className="navbar" style={{ backgroundColor: '#fdf2ce' }}>
-          <div className="logo-topo" onClick={() => setMenuAberto(true)} style={{ cursor: 'pointer' }}>
-            <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
-          </div>
           <nav className="nav-links">
             <span onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>Voltar</span>
           </nav>
@@ -102,7 +99,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
               
               {/* Foto de Perfil */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '10px' }}>
-                <div className="menu-avatar" style={{ width: '90px', height: '90px', fontSize: '2.5rem', margin: '0 auto', backgroundColor: '#660022', color: 'white' }}>
+                <div className="menu-avatar" style={{ width: '90px', height: '90px', fontSize: '2.5rem', margin: '0 auto', backgroundColor: '#5e0d2f;', color: 'white' }}>
                   <FiUser />
                 </div>
                 <button type="button" className="btn-visualizar" style={{ marginTop: '12px', width: 'auto', padding: '6px 15px', alignSelf: 'center' }}>
@@ -228,7 +225,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
                 <button type="button" className="btn-visualizar" style={{ backgroundColor: '#777', color: '#fff' }} onClick={() => navigate(-1)}>
                   <FiX /> Cancelar
                 </button>
-                <button type="submit" className="btn-visualizar" style={{ backgroundColor: '#660022', color: '#fff' }}>
+                <button type="submit" className="btn-visualizar" style={{ backgroundColor: '#5e0d2f;', color: '#fff' }}>
                   <FiSave /> Salvar Alterações
                 </button>
               </div>

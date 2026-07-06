@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { FiInfo } from 'react-icons/fi'
 import Sidebar from '../../../components/Sidebar'
-import imgMenu from '../../../assets/menulateral.png'
 import './Categoria.css' 
 
 // Importação das 4 imagens das categorias
