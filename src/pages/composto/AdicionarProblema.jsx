@@ -109,14 +109,28 @@ export default function AdicionarProblema() {
     console.log('Respostas enviadas:', data);
   };
 
+  // TELA FINAL ATUALIZADA COM O BOTÃO DE VOLTAR
   if (enviado) {
     return (
       <div className="quest-page">
         <div className="quest-card" style={{ textAlign: 'center', marginTop: '80px' }}>
           <h1 className="quest-title" style={{ color: '#611025' }}>PROJETO ENVIADO!</h1>
-          <p className="quest-subtitle" style={{ color: '#2b2b2b', marginTop: '20px' }}>
+          <p className="quest-subtitle" style={{ color: '#2b2b2b', marginTop: '20px', marginBottom: '30px' }}>
             Obrigado por enviar o seu projeto. Temos certeza de que em breve ele será resolvido.
           </p>
+          
+          <button 
+            type="button" 
+            className="quest-btn quest-btn--primary"
+            style={{ margin: '0 auto', display: 'block' }}
+            onClick={() => {
+              setEnviado(false);
+              setStep(0);
+              setData(INITIAL_DATA); // Limpa as respostas antigas para um novo envio
+            }}
+          >
+            VOLTAR AO INÍCIO
+          </button>
         </div>
       </div>
     );
