@@ -1,9 +1,9 @@
 :root {
-  --vinho: #6B0F2B;
+  --vinho: #5e0d2f;
   --vinho-escuro: #4a0a1e;
   --dourado: #E8C874;
   --dourado-escuro: #D4AF5A;
-  --bege-fundo: #FAF3E3;
+  --bege-fundo: #fdf2ce;
   --bege-card: #F3E8CD;
   --bege-linha: #EFE3C8;
   --texto-principal: #2E2620;
@@ -11,7 +11,10 @@
   --sombra: 0 4px 14px rgba(107, 15, 43, 0.08);
   --sombra-hover: 0 8px 22px rgba(107, 15, 43, 0.14);
   --raio: 14px;
+  --dourado-principal: #5e0d2f;
 }
+
+
  
 * {
   box-sizing: border-box;
@@ -73,7 +76,7 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background: var(--vinho);
+  background:#5e0d2f !important;
   transition: width 0.25s ease;
 }
  
