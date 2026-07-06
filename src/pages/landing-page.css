@@ -99,10 +99,6 @@ html, body {
     font-size: 1.1rem;
 }
 
-.nav-links a.active {
-    border-bottom: 2px solid var(--cor-texto-principal);
-}
-
 
 /* ==========================================================================
    2. ESTILOS EXCLUSIVOS DA PÁGINA INICIAL (INDEX.HTML)
@@ -335,6 +331,17 @@ html, body {
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.ep-btn-entrar {
+    background-color: var(--cor-texto-principal);
+    color: white;
+    padding: 8px 25px;
+    text-decoration: none;
+    border-radius: 10px;
     font-weight: bold;
     transition: 0.3s;
     display: inline-block;
@@ -875,14 +882,10 @@ html, body {
 }
 
 .nav-links a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: var(--cor-texto-principal);
     font-weight: bold;
     font-size: 1.1rem;
-}
-
-.nav-links a.active {
-    border-bottom: 2px solid var(--cor-texto-principal);
 }
 
 

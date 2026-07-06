@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './landing-page.css'; // Certifique-se de que o arquivo CSS está na mesma pasta ou ajuste o caminho
 import imgLogo from '../assets/logo.png'
-import imgMenu from '../assets/menulateral.png'
 import { useNavigate } from 'react-router-dom'
 
 export default function SobreNos() {
@@ -9,12 +8,10 @@ export default function SobreNos() {
   const openMenuBtnRef = useRef(null);
   const sidebarRef = useRef(null);
   const navigate = useNavigate()
-  
-  // Função para rolar suavemente para o topo
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+  const teamSectionRef = useRef(null);
+  const scrollToTeam = () => {
+  teamSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
   // Efeito para fechar o menu ao clicar fora dele (equivalente ao seu script original)
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -38,18 +35,16 @@ export default function SobreNos() {
     <>
       <main className="main-container">
         <header className="navbar">
-          <button 
-            className="btn-menu" 
-            id="open-menu" 
-            aria-label="Abrir menu"
-            ref={openMenuBtnRef}
-            onClick={() => setIsSidebarActive(true)}
-          >
-            <img src={imgMenu} alt="Abrir Menu" style={{ height: '40px', pointerEvents: 'none' }} />
-          </button>
+            <img src={imgLogo} alt="Abrir Menu" style={{ height: '40px', pointerEvents: 'none' }} />
           <nav className="nav-links">
-            <a href="#!" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Início</a>
-            <a href="#!" onClick={(e) => { e.preventDefault(); navigate('/sobre'); }} className="active">Sobre nós</a>
+           <a href="#!" onClick={(e) => { e.preventDefault(); scrollToTeam(); }} className="active">Sobre nós</a>
+             <a 
+      href="#!" onClick={(e) => { e.preventDefault(); navigate('/home'); }} 
+      className="ep-btn-entrar"
+      style={{ textDecoration: 'none' }}
+    >
+      Entrar
+    </a>
           </nav>
         </header>
 
@@ -117,7 +112,7 @@ export default function SobreNos() {
           </div>
         </section>
 
-        <section className="team-section-new">
+        <section className="team-section-new" ref={teamSectionRef}>
           <h2 className="team-title">Sobre a equipe </h2>
           <p className="team-subtitle"> Desenvolvido por alunas do IFPI Campus Floriano, do curso de Tecnologia em Análise e Desenvolvimento de Sistemas (TADS).</p>
           

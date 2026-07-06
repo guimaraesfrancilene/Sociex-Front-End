@@ -1,10 +1,16 @@
 :root {
-  --bg-color: #fdf6e2;
-  --primary-color: #6a1b29;
+  --bg-color: #fdf2ce;
+  --primary-color: #5e0d2f;
   --text-color: #4a3b32;
   --border-color: #b58d86;
   --input-bg: #ffffff;
 }
+
+:root {
+    --cor-fundo-destaque: #fdf2ce; 
+    --cor-texto-principal: #5e0d2f; 
+    --cor-borda-container: #f58220; 
+    --cor-bota-fundo: #ffebd2; 
 
 body {
   margin: 0;
@@ -83,9 +89,9 @@ body {
 }
 
 .btn-adicionar-projeto {
-  background-color: #E8A020;
+  background-color: #f58220;
   color: white;
-  border: 2px solid #E8A020;
+  border: 2px solid #f58220;
   padding: 0 20px;
   height: 48px;
   border-radius: 8px;
@@ -99,7 +105,7 @@ body {
 }
 
 .btn-adicionar-projeto:hover {
-  background-color: #c8881a;
+  background-color: #f58220;
 }
 
 .categories-section {
@@ -266,7 +272,7 @@ textarea::placeholder {
   left: -350px;
   width: 350px;
   height: 100vh;
-  background-color: #6B0F2B;
+  background-color: #5e0d2f;
   z-index: 1000;
   transition: left 0.3s ease;
   display: flex;
@@ -426,7 +432,7 @@ textarea::placeholder {
 }
 
 .btn-success-solid:hover {
-  background-color: #52131e;
+  background-color: #5e0d2f;
 }
 
 /* Animação global de fade */

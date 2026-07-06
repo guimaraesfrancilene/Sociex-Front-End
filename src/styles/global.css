@@ -10,12 +10,11 @@ body {
 
 /* Cores padrão do projeto */
 :root {
-  --cor-primaria: #6B0F2B;
-  --cor-fundo: #F5F0E0;
-  --cor-destaque: #E8A020;
+  --cor-primaria: #5e0d2f;
+  --cor-fundo: #fdf2ce;
+  --cor-destaque: #f58220;
   --cor-texto: #3a3a3a;
 }
-
 
 /* Layout base - reutilizado em todas as telas */
 .tela-container {
@@ -42,7 +41,7 @@ body {
 }
 
 .lado-esquerdo h1 {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-size: 80px;
   font-weight: bold;
   margin: 0;
@@ -99,7 +98,7 @@ body {
 }
 
 .btn-primario:hover {
-  background-color: #550a22;
+  background-color: #5e0d2f;
 }
 
 .btn-secundario {

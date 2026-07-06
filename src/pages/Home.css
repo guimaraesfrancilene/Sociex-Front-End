@@ -8,7 +8,7 @@
 .home-left {
   flex: 1;
   width: 380px;
-  background-color: #F5F0E0;
+  background-color: #fdf2ce;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
   font-size: 80px;
 }
 .home-titulo {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-size: 80px;
   font-weight: bold;
   margin: 0;
@@ -44,7 +44,7 @@
 /* Lado direito */
 .home-right {
   flex: 1;
-  background-color: #6B0F2B;
+  background-color: #5e0d2f;
   display: flex;
   align-items: center;
    flex-direction: column;
@@ -64,13 +64,13 @@
 }
 
 .home-card h2 {
-  color: #6B0F2B;
+  color: #5e0d2f;
   font-size: 24px;
   font-weight: bold;
 }
 
 .home-card p {
-  color: #E8A020;
+  color: #f58220;
   font-weight: bold;
   font-size: 18px;
 }
@@ -80,9 +80,9 @@
   width: 100%;
   padding: 16px;
   background-color: white;
-  border: 2px solid #6B0F2B;
+  border: 2px solid #5e0d2f;
   border-radius: 8px;
-  color: #3a3a3a;
+  color: #5e0d2f;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;

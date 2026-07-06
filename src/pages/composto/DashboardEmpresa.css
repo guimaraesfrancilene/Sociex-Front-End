@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #fdf6e2;
-  --primary-color: #6a1b29;
+  --bg-color: #fdf2ce;
+  --primary-color: #5e0d2f;
   --text-color: #4a3b32;
   --border-color: #b58d86;
   --input-bg: #ffffff;
@@ -84,7 +84,7 @@ body {
 
 .btn-adicionar-projetoe {
   background-color: var(--cor-botao-fundo);
-  color: #6a1b29;
+  color: #5e0d2f;
   border: 2px solid #f58220;
   padding: 0 20px;
   height: 48px;
@@ -317,7 +317,7 @@ textarea::placeholder {
 }
 
 .btn-primary:hover {
-  background-color: #52131e;
+  background-color: #5e0d2f;
 }
 
 .btn-secondary {
@@ -426,7 +426,7 @@ textarea::placeholder {
 }
 
 .btn-success-solid:hover {
-  background-color: #52131e;
+  background-color: #5e0d2f;
 }
 
 /* Animação global de fade */

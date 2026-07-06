@@ -41,7 +41,7 @@ export default function Sidebar({ menuAberto, setMenuAberto, nomeUsuario, tipoUs
           left: menuAberto ? '0' : '-350px', // Abre e fecha baseado no estado
           width: '350px',
           height: '100vh', // Ocupa toda a altura da tela obrigatoriamente
-          backgroundColor: '#6B0F2B', // Mude para a cor do seu projeto se quiser
+          backgroundColor:' #5e0d2f', //Mude para a cor do seu projeto se quiser
           zIndex: 999,
           transition: 'left 0.3s ease',
           display: 'flex',
