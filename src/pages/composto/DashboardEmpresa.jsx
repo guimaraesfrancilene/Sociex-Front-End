@@ -77,7 +77,7 @@ function DashboardEmpresa() {
                 onChange={(e) => setBusca(e.target.value)}
               />
             </div>
-            <button className="btn-adicionar-projeto" onClick={() => navigate('/composto/adicionarprojeto')}>
+            <button className="btn-adicionar-projetoe" onClick={() => navigate('/composto/adicionarprojeto')}>
               <FiPlus /> Adicionar Projeto
             </button>
           </div>
