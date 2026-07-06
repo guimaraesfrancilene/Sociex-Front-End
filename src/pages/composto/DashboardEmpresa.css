@@ -82,10 +82,10 @@ body {
   margin: 0 auto;
 }
 
-.btn-adicionar-projeto {
-  background-color: #E8A020;
-  color: white;
-  border: 2px solid #E8A020;
+.btn-adicionar-projetoe {
+  background-color: var(--cor-botao-fundo);
+  color: #6a1b29;
+  border: 2px solid #f58220;
   padding: 0 20px;
   height: 48px;
   border-radius: 8px;
@@ -98,8 +98,8 @@ body {
   white-space: nowrap;
 }
 
-.btn-adicionar-projeto:hover {
-  background-color: #c8881a;
+.btn-adicionar-projetoe:hover {
+  background-color: #fdf6e2;
 }
 
 .categories-section {
