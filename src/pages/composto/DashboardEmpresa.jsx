@@ -54,7 +54,7 @@ function DashboardEmpresa() {
           <img src={imgMenu} alt="Menu" style={{ height: '40px' }} />
         </div>
         <nav className="nav-links">
-          <a href="DashboardEmpresa.jsx" className="active">Início</a>
+          <a href="/composto/dashboardempresa" className="active">Início</a>
           <a href="sobre.jsx">Sobre nós</a>
         </nav>
       </header>

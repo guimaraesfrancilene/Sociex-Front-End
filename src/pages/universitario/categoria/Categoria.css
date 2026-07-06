@@ -3,9 +3,9 @@
   --vinho-escuro: #4a0a1e;
   --dourado: #E8C874;
   --dourado-escuro: #D4AF5A;
-  --bege-fundo: #fdf2ce;
-  --bege-card: #F3E8CD;
-  --bege-linha: #EFE3C8;
+  --bege-fundo: #fff;
+  --bege-card: #f6eac3;
+  --bege-linha: #f6eac3;
   --texto-principal: #2E2620;
   --texto-secundario: #6b6155;
   --sombra: 0 4px 14px rgba(107, 15, 43, 0.08);
@@ -34,7 +34,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 48px;
-  background: rgba(250, 243, 227, 0.85);
+  background: #fdf2ce;
   backdrop-filter: blur(8px);
   position: sticky;
   top: 0;

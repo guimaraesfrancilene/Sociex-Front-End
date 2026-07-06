@@ -73,8 +73,8 @@ function VisualizarCategoria({ tipoUsuario = 'Estudante' }) {
 
   // Redirecionamento dinâmico do botão início da Navbar
   const obterRotaInicio = () => {
-    if (tipoUsuario === 'Sociedade') return '/sociedade/dashboard'
-    if (tipoUsuario === 'Empresa') return '/empresa/dashboard'
+    if (tipoUsuario === 'Sociedade') return '/composto/dashboardsociedade'
+    if (tipoUsuario === 'Empresa') return '/composto/dashboardempresa'
     return '/universitario/dashboard'
   }
 
@@ -102,12 +102,11 @@ function VisualizarCategoria({ tipoUsuario = 'Estudante' }) {
             }} 
             style={{ cursor: 'pointer', display: 'inline-block', position: 'relative', zIndex: 10000 }}
           >
-            <img src={imgMenu} alt="Menu" style={{ height: '40px', pointerEvents: 'none' }} />
-          </div>
-          <nav className="nav-links">
-            <span onClick={() => navigate(obterRotaInicio())} style={{ cursor: 'pointer' }}>Início</span>
-            <a href="#">Sobre nós</a>
-          </nav>
+            <nav className="nav-links">
+           <span onClick={() => navigate(obterRotaInicio())} style={{ cursor: 'pointer' }}>Voltar</span>
+            </nav> 
+           </div>
+        
         </header>
 
         {/* Cabeçalho Adaptável */}
@@ -123,7 +122,7 @@ function VisualizarCategoria({ tipoUsuario = 'Estudante' }) {
           {/* Renderização Condicional do Botão de Cadastro */}
           
             <button className="btn-adicionar" onClick={() => navigate('/composto/adicionarprojeto')}>
-              + Adicionar projeto nessa categoria...
+              + Adicionar projeto
             </button>
         </section>
 
