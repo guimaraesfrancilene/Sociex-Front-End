@@ -1,4 +1,4 @@
-import "./VisaoProjetos.css";
+import "./VisaoGeralProjetos.css";
 import {
   FaSearch,
   FaCamera,
