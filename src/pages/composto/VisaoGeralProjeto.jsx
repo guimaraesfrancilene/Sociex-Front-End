@@ -47,7 +47,7 @@ export default function VisaoGeralProjetos() {
       <header className="vgp-header">
         <div className="vgp-header-top">
           <div className="vgp-brand">
-            <span className="vgp-logo" aria-hidden="true">
+            <span className="menulateral.png" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="22" height="22">
                 <path
                   fill="currentColor"
