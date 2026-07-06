@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./VisaoGeralProjetos.css";
+import "./VisaoGeralProjeto.css";
 
 const PROJETOS = [
   { id: 1, nome: "Gestão de Rebanho", categoria: "Agropecuária", data: "25Nov/2025", status: "pendente" },
