@@ -6,11 +6,11 @@ import './MeusProjetos.css'
 const projetosEstudante = [
   {
     id: 1,
-    titulo: 'Sistema de Controle de Estoque',
+    titulo: 'Iniciativa De Telemedicina Rural',
     empresa: 'Mercado Boa Vista',
-    categoria: 'Tecnologia',
+    categoria: 'Saúde',
     status: 'Em desenvolvimento',
-    dataAceite: '12/05/2026',
+    dataAceite: '12/04/2026',
     prazo: '30/07/2026',
   },
   {
