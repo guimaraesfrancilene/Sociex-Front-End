@@ -86,7 +86,7 @@ export default function VisaoGeralProjetos() {
             </svg>
             <input
               type="text"
-              placeholder="BUSCAR por nome."
+              placeholder="Buscar por nome"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               aria-label="Buscar projeto por nome"
