@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FiUser, FiSave, FiX } from 'react-icons/fi'
 import Sidebar from '../components/Sidebar'
-import imgMenu from '../assets/menulateral.png'
 
 function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
   const navigate = useNavigate()
@@ -225,7 +224,7 @@ function EditarPerfil({ tipoUsuario = 'Estudante', dadosIniciais }) {
                 <button type="button" className="btn-visualizar" style={{ backgroundColor: '#777', color: '#fff' }} onClick={() => navigate(-1)}>
                   <FiX /> Cancelar
                 </button>
-                <button type="submit" className="btn-visualizar" style={{ backgroundColor: '#5e0d2f;', color: '#fff' }}>
+                <button type="submit" className="btn-visualizar" style={{ backgroundColor: '#5e0d2f', color: '#fff' }}>
                   <FiSave /> Salvar Alterações
                 </button>
               </div>
