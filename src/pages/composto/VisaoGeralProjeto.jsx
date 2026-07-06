@@ -1,4 +1,4 @@
-import "./VisaoGeralProjetos.css";
+import "./VisaoGeralProjeto.css";
 import {
   FaSearch,
   FaCamera,
@@ -6,7 +6,7 @@ import {
   FaTimesCircle
 } from "react-icons/fa";
 
-export default function VisaoProjetos() {
+export default function VisaoGeralProjeto() {
   const status = ["Pendente", "Em Análise", "Aprovado", "Recusado", "Finalizado", "Cancelado"];
 
   const projetos = [
@@ -76,7 +76,7 @@ export default function VisaoProjetos() {
       </div>
     </div>
   );
-}import "./VisaoProjetos.css";
+}import "./VisaoGeralProjeto.css";
 import {
   FaSearch,
   FaCamera,
@@ -84,7 +84,7 @@ import {
   FaTimesCircle
 } from "react-icons/fa";
 
-export default function VisaoProjetos() {
+export default function VisaoGeralProjeto() {
   const status = ["Pendente", "Em Análise", "Aprovado", "Recusado", "Finalizado", "Cancelado"];
 
   const projetos = [
